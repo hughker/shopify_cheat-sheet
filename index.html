@@ -1,0 +1,1956 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="cufon-active cufon-ready" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="A cheat sheet with all the variables you can use on your Shopify theme.">
+  <link rel="stylesheet" href="assets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="http://cheat.markdunkley.com/favicon.ico">
+<link rel="stylesheet" href="assets/print.css" type="text/css" media="print">
+<script type="text/javascript" src="assets/jquery.js"></script>
+<script type="text/javascript" src="assets/jquery-ui.js"></script>
+<script src="assets/cookie.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/cufon.js" type="text/javascript" charset="utf-8"></script><style type="text/css">cufon{text-indent:0!important;}@media screen,projection{cufon{display:inline!important;display:inline-block!important;position:relative!important;vertical-align:middle!important;font-size:1px!important;line-height:1px!important;}cufon cufontext{display:-moz-inline-box!important;display:inline-block!important;width:0!important;height:0!important;overflow:hidden!important;text-indent:-10000in!important;}cufon canvas{position:relative!important;}}@media print{cufon{padding:0!important;}cufon canvas{display:none!important;}}</style>
+<script src="assets/Museo_Sans_500_400.js" type="text/javascript" charset="utf-8"></script>
+
+  <script src="assets/cookiesheet.js" type="text/javascript" charset="utf-8"></script>
+
+  <title>Shopify Cheat Sheet and Tutorials</title>
+  
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="navigation">
+    <img src="assets/logo.png" alt="Cheat Sheet Logo" class="logo">
+    <p class="shameless-promo">by <a href="http://markdunkley.com/">Mark Dunkley</a> <a class="twitter" href="http://twitter.com/markdunkley">follow me on twitter <img src="assets/icon-twitter.png" alt="Icon Twitter" height="12" width="17"></a></p>
+   
+    <ul>
+      <li><a href="http://forums.shopify.com/">Forums</a></li>
+      <li><a href="http://docs.shopify.com/">Docs</a></li>
+       <li><a href="http://snapflyers.com/">Snap Flyers</a></li>
+      <li><a href="http://forums.shopify.com/categories/1/posts/30266" title="Feedback">Feedback</a></li>
+      
+    </ul>
+  </div><!-- #navigation -->
+
+<div id="container">
+
+    <div class="content">
+      <div class="col-3 ui-sortable" id="col1">
+
+            <div class="block" id="liquid">
+              <h2><cufon style="width: 46px; height: 18px;" alt="Liquid" class="cufon cufon-canvas"><canvas style="width: 55px; height: 20px; top: -2px; left: -1px;" height="20" width="55"></canvas><cufontext>Liquid</cufontext></cufon></h2>
+              <hr>
+              <h3><cufon style="width: 33px; height: 14.0333px;" alt="Logic" class="cufon cufon-canvas"><canvas style="width: 40px; height: 16px; top: -2px; left: -1px;" height="16" width="40"></canvas><cufontext>Logic</cufontext></cufon></h3>
+              <dl>
+                <dt>{% comment %}</dt>
+                <dd style="display: none;">
+                  <em>Comments will be hidden</em>
+                  <div class="example">
+                    <code>My name is {% comment %}Mark{% endcomment %} Dunkley</code>
+                    <code class="output">My name is Dunkley</code>
+                  </div><!-- .example -->
+                </dd>
+                
+               <dt>{% raw %}</dt>
+                <dd style="display: none;">
+                  <em>No liquid will be parsed in within these tags</em>
+                  <div class="example">
+                    <code>{% raw %} {{mustache.js}} {% endraw %}</code>
+                  </div><!-- .example -->
+                </dd>
+                
+                <dt>{% if  %}</dt>
+                <dd style="display: none;">
+                 <em>"If" statements let you determine if something is true or not</em>
+                 
+                 <div class="example">
+                   if username is elvis
+                   <code>{% if user.name == 'elvis' %}<br>
+                     hey Elvis<br>
+                   {% endif %}</code>
+                   <code class="output">hey Elvis</code>
+                   Else if example
+                   <code>
+                   {% if user.name == 'elvis' %} <br>
+                     hey elvis<br>
+                   {% elsif user.name == 'Mark' %}<br>
+                   	 hey mark<br>
+                   {% else %}<br>
+                   	 hi stranger<br>
+                   {% endif %}</code>
+                   <code class="output">hey ugly</code>
+                   
+                 </div><!-- .example -->
+                </dd>
+                
+                <dt>{% unless %}</dt>
+                <dd style="display: none;"><em>If not true, then it will do something</em>
+                <div class="example">
+                  username is not "elvis"
+                   <code>{% unless user.name == 'elvis' %} <br>
+                     hey ugly<br>
+                   {% endunless %} </code>
+                   <code class="output">hey ugly</code>
+                </div><!-- .example" -->
+                </dd>
+                
+                <dt>{% case %}</dt>
+                <dd style="display: none;">
+                  <em>Used when you have consistent cases of something</em>
+                  <div class="example">
+                    case [handle is 'cookie']
+                    <code>{% case handle %} <br>
+                    {% when 'cake' %}<br>
+                         This is a cake<br>
+                    {% when 'cookie' %}<br>
+                         This is a cookie<br>
+                    {% else %}<br>
+                         This is not a cookie/cake<br>
+                    {% endcase %}</code>
+                    <code class="output">This is a cookie</code>
+                  </div><!-- .example -->
+                </dd>
+                
+                <dt>{% cycle %}</dt>
+                <dd style="display: none;">
+                  <em>Use when you need to alternate between something.</em>
+                  <div class="example">
+                    Basic example
+                    <code>{% cycle 'one', 'two' %}<br>
+                    {% cycle 'one', 'two' %}<br>
+                    {% cycle 'one', 'two' %}
+                    </code>
+                    <code class="output">one<br>two<br>one</code>
+                    
+                    Group cycles
+                    <code>{% cycle 'group 1': 'one', 'two', 'three' %}<br> 
+                    {% cycle 'group 1': 'one', 'two', 'three' %}<br> 
+                    {% cycle 'group 2': 'one', 'two', 'three' %}<br> 
+                    {% cycle 'group 2': 'one', 'two', 'three' %}<br>
+                    </code>
+                    <code class="output">one
+                    two 
+                    one
+                    two
+                    </code>
+                  </div><!-- .example -->
+                </dd>
+                
+                <dt>
+                  {% for %}
+                </dt>
+                <dd style="display: none;">
+                 <em> Use "for loops" if you want to repeat/test something over and over</em>
+                  <div class="options">
+                    Loop options
+                    <ul>
+                      <li>limit:</li>
+                      <li>offset:</li>
+                    </ul>
+                  </div><!-- .options -->
+                  <div class="example">
+                    For Loop [product are: hat, pez, pad]
+                    <code>{% for product in collection.products %} <br>
+                       {{ product.name }},<br>
+                     {% endfor %} 
+                    </code>
+                    <code class="output">hat, pez, pad,</code>
+                    
+                    Limit [product are: hat, pez, pad]
+                    <code>{% for product in collection.products limit:2 %} <br>
+                       {{ product.name }},<br>
+                     {% endfor %} 
+                    </code>
+                    <code class="output">hat, pez,</code>
+                  </div><!-- .example -->
+                </dd>
+                
+                <dt>{% tablerow %}</dt>
+                <dd style="display: none;">
+                 <em> Generate table rows/cells</em>
+                 <div class="options">
+                   You have a few options
+                   <ul>
+                    <li>cols:</li>
+                    <li>limit:</li>
+                   </ul>
+                  
+                 </div><!-- .options -->
+                 <div class="example">
+                   Example [products are: hat, pez, pad]
+                  <code> &lt;table&gt;<br>{{% tablerow product in collection.products cols: 2 %}<br>
+                       &lt;td&gt;<br>
+                       {{ product.title }}<br>
+                       &lt;/td&gt;<br>
+                     {% endtablerow %}<br>
+                     &lt;/table&gt;</code>
+                     <code class="output">
+                      &lt;table&gt;<br>
+                        &lt;tr&gt;<br>
+                          &lt;td&gt;hat&lt;/td&gt;<br>
+                          &lt;td&gt;pez&lt;/td&gt;<br>
+                        &lt;/tr&gt;<br>
+                        &lt;tr&gt;<br>
+                          &lt;td&gt;pad&lt;/td&gt;<br>
+                        &lt;/tr&gt;<br>
+                      &lt;/table&gt;<br>
+                     </code>
+                 </div><!-- .example -->
+                </dd>
+                
+                <dt>{% assign %}</dt>
+                <dd style="display: none;">
+                 <em>Create variables</em>
+                 <div class="example">
+                   <code>{% assign myvariable = false %}<br>
+                   {% if myvariable != true %}<br>
+                     The if statement is valid<br>
+                   {% endif %}</code>
+                   <code class="output">The if statement is valid</code>
+                 </div><!-- .example -->
+                </dd>
+                
+                <dt>{% include %}</dt>
+                <dd style="display: none;">
+                  <em>Insert a snippet into your layout</em>
+                  <div class="example">
+                    Within the snippet color.liquid
+                    <code>color: '{{ color }}'<br>
+                    shape: '{{ shape }}'<br>
+                    </code>
+                    Within the template index.liquid
+                    <code>
+                    {% assign shape = 'circle' %}<br>
+                    {% include 'color' %}<br>
+                    {% include 'color' with 'red' %}<br>
+                    {% include 'color' with 'blue' %}<br>
+                    {% assign shape = 'square' %}<br>
+                    {% include 'color' with 'red' %}</code>
+                    <code class="output">
+                      color: ''<br>
+                      shape: 'circle'<br>
+                      color: 'red'<br>
+                      shape: 'circle'<br>
+                      color: 'blue'<br>
+                      shape: 'circle'<br><br>
+
+                      color: 'red'<br>
+                      shape: 'square'<br>
+                      
+                    </code>
+                  </div><!-- .example -->
+                </dd>
+              </dl>
+
+
+              <hr>
+              <h3><cufon style="width: 60px; height: 14.0333px;" alt="Operators" class="cufon cufon-canvas"><canvas style="width: 69px; height: 16px; top: -2px; left: -1px;" height="16" width="69"></canvas><cufontext>Operators</cufontext></cufon></h3>
+              <dl>
+                <dt>== !- &gt; &lt; &gt;= &lt;= or and contains</dt><dd style="display: none;">
+                  <em>You can use operators in all the above logic statements</em>
+                  <div class="options">
+                  <ul>
+                    <li><strong>==</strong> equal</li>
+                    <li><strong>!=</strong> not equal</li>
+                    <li><strong>&gt;</strong> bigger than</li>
+                    <li><strong>&lt;</strong> less than</li>
+                    <li><strong>&gt;=</strong> bigger or equal</li>
+                    <li><strong>&lt;=</strong> less or equal</li>
+                    <li><strong>or</strong> this or that</li>
+                    <li><strong>and</strong> must be this and that</li>
+                    <li><strong>contains</strong> includes the substring if used on a string, or element if used on an array</li>
+
+                  </ul></div>
+                  
+                </dd>
+              </dl>
+              
+                 <ul class="section-options">
+                    <li><a class="wiki" href="http://wiki.shopify.com/UsingLiquid" title="Using liquid - Shopify Wiki">wiki ›</a></li>
+                    <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+                  </ul>
+                  
+            </div><!-- .block -->
+            
+               <div id="images" class="block clearfix">
+                  <h2><cufon style="width: 55px; height: 18px;" alt="Images" class="cufon cufon-canvas"><canvas style="width: 67px; height: 20px; top: -2px; left: -1px;" height="20" width="67"></canvas><cufontext>Images</cufontext></cufon></h2>
+                  <hr>
+                  <h3><cufon style="width: 28px; height: 14.0333px;" alt="sizes" class="cufon cufon-canvas"><canvas style="width: 37px; height: 16px; top: -2px; left: -1px;" height="16" width="37"></canvas><cufontext>sizes</cufontext></cufon></h3>
+                <ul class="images">
+                   <li>16x16 <em>pico</em></li>
+                  <li>32x32 <em>icon</em></li>
+                  <li>50x50 <em>thumb</em></li>
+                  <li>100x100 <em>small</em></li>
+                  <li>160x160 <em>compact</em></li>
+                  <li>240x240 <em>medium</em></li>
+                  <li>480x480 <em>large</em></li>
+                  <li>600x600 <em>grande</em></li>
+                  <li>1024x1024 <em>1024x1024</em></li>
+                  <li>2048x2048 <em>2048x2048</em></li>
+                 </ul>
+                  <ul class="section-options">
+                     <li><a class="wiki" href="http://wiki.shopify.com/HowToDisplayAnImage" title="Using liquid - Shopify Wiki">wiki  ›</a></li>
+                     <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+                   </ul>
+                </div><!-- .block -->
+                
+                <div class="block" id="essentials">
+                  <h2><cufon style="width: 113px; height: 18px;" alt="Essentials/Misc" class="cufon cufon-canvas"><canvas style="width: 123px; height: 20px; top: -2px; left: -1px;" height="20" width="123"></canvas><cufontext>Essentials/Misc</cufontext></cufon></h2>
+                  <hr>
+                  <dl>
+                    <dt>2 types of liquid tags</dt>
+                    <dd style="display: none;">
+                      <em>We use liquid to generate our code. There are 2 types</em>
+                      <div class="example">
+                        Will output something
+                        <code>
+                        {{ 'output me' }}</code>
+                        <code class="output">output me</code>
+                        Logic statement
+                        <code>{% logic %}</code>
+                      </div><!-- .example -->
+                    </dd>
+                    
+                    <dt>page_description</dt>
+                    <dd style="display: none;">
+                      <em>Depending on which template Shopify is 
+rendering it will pull a Google friendly description of the page. Use it
+ for meta descriptions.</em>
+                      <div class="example">
+                        <code>
+                        {{ page_description }}
+                        </code>
+                      </div><!-- .example -->
+                    </dd>
+                    
+                    
+                    <dt>page_title</dt>
+                    <dd style="display: none;">
+                      <em>Renders the template's default page title text selected by Shopify</em>
+                      <div class="example">
+                        <code>
+                        {{ page_title }}
+                        </code>
+                      </div><!-- .example -->
+                    </dd>
+                    
+                     <dt>if variable is blank/empty/null</dt>
+                    <dd style="display: none;">
+                      <em>Instead of doing == "", or == empty you can 
+take advantage of "nil" by simply writing {% if variableName %}. If 
+there is nothing the variable will return false</em>
+                      <div class="example">
+                        <code>
+                        {% if fulfillment.tracking_number %}
+We have a tracking number!
+{% endif %}
+                        </code>
+                      </div><!-- .example -->
+                    </dd>
+                    
+                    
+       
+                    
+                   <dt>layout</dt>
+                    <dd style="display: none;">
+                      <em>By default "layout.liquid" is applied to all 
+themes, but you can specify a new layout by creating a new layout and 
+use the tag {% layout "layout2" %} or if you don't want a layout use {% 
+layout "none" %} .</em>
+                      <div class="example">
+                        <code>
+                        {% layout "layout2" %}
+                        </code>
+                      </div><!-- .example -->
+                    </dd>
+                    
+                   <dt>current_tags</dt>
+                    <dd style="display: none;">
+                      <em>Renders a list of all the tags, only works on collection.liquid and blog.liquid.</em>
+                    </dd>
+                    
+                    
+           
+
+                    <dt>What is a handle?</dt>
+                    <dd style="display: none;">
+                      <em>A <strong>handle</strong> is how we name our elements (collections, products, blogs, etc)</em>
+                    </dd>
+                  </dl>
+                      <ul class="section-options">
+                        <li><a class="wiki" href="http://wiki.shopify.com/UsingLiquid" title="Using liquid - Shopify Wiki">wiki  ›</a></li>
+                        <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+                      </ul>
+                    </div><!-- .block -->
+                    
+                    
+                    
+<div class="block" id="themesettings">
+<h2><cufon style="width: 58px; height: 18px;" alt="Theme " class="cufon cufon-canvas"><canvas style="width: 73px; height: 20px; top: -2px; left: -1px;" height="20" width="73"></canvas><cufontext>Theme </cufontext></cufon><cufon style="width: 60px; height: 18px;" alt="Settings" class="cufon cufon-canvas"><canvas style="width: 72px; height: 20px; top: -2px; left: -1px;" height="20" width="72"></canvas><cufontext>Settings</cufontext></cufon></h2>
+<hr>
+<dl>
+  <dt>Text field</dt>
+  <dd style="display: none;">
+<pre>&lt;tr&gt;
+  &lt;th&gt;&lt;label for="my_text"&gt;Name of this setting.&lt;/label&gt;&lt;/th&gt;
+  &lt;td&gt;&lt;input type="text" id="my_text" name="my_text" class="text" value=""/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+  </dd>
+
+  <dt>Multiline text field</dt>
+  <dd style="display: none;">
+<pre>&lt;tr&gt;
+  &lt;th&gt;&lt;label for="my_textarea"&gt;Name of this setting.&lt;/label&gt;&lt;/th&gt;
+  &lt;td&gt;&lt;textarea rows="4" cols="20" id="my_textarea" name="my_textarea" class="textarea" value=""/&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+  </dd>
+  
+  <dt>Select menus </dt>
+  <dd style="display: none;">
+<pre>&lt;tr&gt;
+  &lt;th&gt;&lt;label for="my_dropdown"&gt;Name of this Setting&lt;/label&gt;&lt;/th&gt;
+  &lt;td&gt;
+    &lt;select name="my_dropdown" id="my_dropdown"&gt;
+      &lt;option value="1" selected="selected"&gt;1&lt;/option&gt;
+      &lt;option value="2"&gt;2&lt;/option&gt;
+      &lt;option value="3"&gt;3&lt;/option&gt;
+      &lt;option value="4"&gt;4&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+  </dd>
+  
+  <dt>Checkboxes</dt>
+  <dd style="display: none;">
+<pre>&lt;tr&gt;
+  &lt;th&gt;&lt;label for="my_checkbox"&gt;Name of this Setting&lt;/label&gt;&lt;/th&gt;
+  &lt;td&gt;&lt;input type="checkbox" id="my_checkbox" name="my_checkbox" value="1" /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+  </dd>
+  
+  <dt>File Uploads</dt>
+  <dd style="display: none;">
+<pre>&lt;tr&gt;
+&lt;th&gt;&lt;label for="my_img"&gt;Settings Name&lt;/label&gt;&lt;/th&gt;
+&lt;td&gt;
+  &lt;input type="file" id="my_img" name="my_img.jpg"  data-max-width="100" data-max-height="200" /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+</pre>
+  </dd>
+  
+  <dt>CSS/Specialty Classes</dt>
+  <dd style="display: none;">
+<pre>&lt;input class=<strong>"color"</strong> name="background_color" value="#332211" /&gt;
+
+&lt;select class="<strong>collection</strong>" name="frontpage_collection" /&gt;
+  
+&lt;select class="<strong>font</strong>" name="header_font" id="header_font"&gt;
+  &lt;option value="Georgia, Utopia, 'Times New Roman', Times, serif" selected="selected"&gt;Georgia&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select class="<strong>blog</strong>" name="main_blog" /&gt;
+
+&lt;select class="<strong>page</strong>" name="welcome_message" /&gt;
+
+&lt;select class="<strong>linklist</strong>" name="sidebar_linklist" /&gt;  
+
+&lt;select class="<strong>snippet</strong>" name="sidebar_widget" /&gt;
+
+</pre>
+  </dd>
+  
+    <dt>Shopify credit</dt>
+  <dd style="display: none;"><em>Necessary for any themes on the theme store</em>
+<pre>{{ powered_by_link }}
+</pre>
+  </dd>
+
+  
+</dl>
+    <ul class="section-options">
+      <li><a class="wiki" href="http://docs.shopify.com/themes/theme-templates/9-settings" title="Theme SEttings - Shopify Wiki">Docs  ›</a></li>
+      <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+    </ul>
+  </div><!-- .block -->
+
+                    
+                 
+                
+
+                <div class="block" id="helpers">
+                  <h2><cufon style="width: 44px; height: 18px;" alt="Loop " class="cufon cufon-canvas"><canvas style="width: 58px; height: 20px; top: -2px; left: -1px;" height="20" width="58"></canvas><cufontext>Loop </cufontext></cufon><cufon style="width: 58px; height: 18px;" alt="Helpers" class="cufon cufon-canvas"><canvas style="width: 70px; height: 20px; top: -2px; left: -1px;" height="20" width="70"></canvas><cufontext>Helpers</cufontext></cufon></h2>
+                  
+                  <hr>
+                  <dl>
+                    <dt>
+                      forloop.length
+                    </dt>
+                    <dd style="display: none;">
+                      <em>length of the entire for loop</em>
+                    </dd>
+                    <dt>
+                       forloop.index   
+                    </dt>
+                    <dd style="display: none;">
+                      <em>index of the current iteration</em> 
+                    </dd>
+                    <dt>
+                       forloop.index0
+                    </dt>
+                    <dd style="display: none;">
+                       <em>index of the current iteration</em>
+                    </dd>
+                    <dt>
+                       forloop.rindex
+                    </dt>
+                    <dd style="display: none;">
+                      <em>how many items are still left?</em>
+                    </dd>
+                    <dt>
+                      forloop.rindex0
+                    </dt>
+                    <dd style="display: none;">
+                      <em>how many items are still left?</em>
+                    </dd>
+                    <dt>
+                      forloop.first
+                    </dt>
+                    <dd style="display: none;">
+                      <em>is this the first iteration?</em>
+                    </dd>
+                    <dt>
+                      forloop.last 
+                    </dt>
+                    <dd style="display: none;">
+                      <em>is this the last iteration? </em>
+                    </dd>
+                  </dl>
+                  <ul class="section-options">
+                      <li><a class="wiki" href="http://docs.shopify.com/themes/liquid-basics/4-for-loops" title="Using liquid - Shopify Wiki">Docs  ›</a></li>
+                      <li><a style="display: none;" class="move" href="#"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+                    </ul>
+                </div><!-- .block -->
+                
+                
+                
+                
+                <div class="block" id="helpers">
+                  <h2><cufon style="width: 81px; height: 18px;" alt="Pagination" class="cufon cufon-canvas"><canvas style="width: 89px; height: 20px; top: -2px; left: -1px;" height="20" width="89"></canvas><cufontext>Pagination</cufontext></cufon></h2>
+                  
+                  <hr>
+                  <dl>
+                    <dt>
+                      paginate.page_size
+                    </dt>
+                    <dd style="display: none;">
+                      <em>The size of each page. That's the amount of items displayed.</em>
+                    </dd>
+                    <dt>
+                      paginate.current_page   
+                    </dt>
+                    <dd style="display: none;">
+                      <em>On which page are we right now? You can also use {{ current_page }} as well.</em> 
+                    </dd>
+                    <dt>
+                       paginate.current_offset
+                    </dt>
+                    <dd style="display: none;">
+                       <em>How many items did we skip over so far</em>
+                    </dd>
+                    <dt>
+                       paginate.pages
+                    </dt>
+                    <dd style="display: none;">
+                      <em>The amount of pages there are</em>
+                    </dd>
+                    <dt>
+                      paginate.items
+                    </dt>
+                    <dd style="display: none;">
+                      <em>Total amount of items in this collection</em>
+                    </dd>
+                    <dt>
+                      paginate.previous
+                    </dt>
+                    <dd style="display: none;">
+                      <em>Exists if there is a previous page.</em>
+                    </dd>
+                    <dt>
+                      paginate.previous.title
+                    </dt>
+                    <dd style="display: none;">
+                      <em>Title of the link </em>
+                    </dd>
+                                        <dt>
+                     paginate.previous.url
+                    </dt>
+                    <dd style="display: none;">
+                      <em>URL of the link </em>
+                    </dd>
+                                        <dt>
+                      paginate.next
+                    </dt>
+                    <dd style="display: none;">
+                      <em>paginate.next.title </em>
+                    </dd>
+                                        <dt>
+                      paginate.next.url
+                    </dt>
+                    <dd style="display: none;">
+                      <em> URL of the link </em>
+                    </dd>
+                                        <dt>
+                      paginate.parts 
+                    </dt>
+                    <dd style="display: none;">
+                      <em>Array of all the parts which make up a good 
+navigation for this pagination. Each element will have any of these 
+three elements: part.is_link (Is this part a link?), part.title (Link 
+Title), part.url (Link URL)</em>
+                    </dd>
+                                        <dt>
+                      part.is_link 
+                    </dt>                  
+                  </dl>
+                  <ul class="section-options">
+                      <li><a class="wiki" href="http://docs.shopify.com/themes/liquid-variables/paginate" title="Using liquid - Shopify Wiki">Docs  ›</a></li>
+                      <li><a style="display: none;" class="move" href="#"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+                    </ul>
+                </div><!-- .block -->
+
+                
+
+       
+
+          </div><!-- . col-3 -->
+          
+          <div class="col-3 ui-sortable" id="col2">
+          
+          
+              <div class="block" id="filters">
+                <h2><cufon style="width: 50px; height: 18px;" alt="Liquid " class="cufon cufon-canvas"><canvas style="width: 65px; height: 20px; top: -2px; left: -1px;" height="20" width="65"></canvas><cufontext>Liquid </cufontext></cufon><cufon style="width: 44px; height: 18px;" alt="Filters" class="cufon cufon-canvas"><canvas style="width: 55px; height: 20px; top: -2px; left: -1px;" height="20" width="55"></canvas><cufontext>Filters</cufontext></cufon></h2>
+                <hr>
+                <dl>
+                  <dt>escape(input) </dt>
+                  <dd style="display: none;">
+                    <em>Use this filter to escape a string. </em>
+                    <div class="example">
+                      <code>{{ link.title | escape }}</code>
+                      <code class="output"></code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>append(input) </dt>
+                  <dd style="display: none;">
+                    <em>Use this filter to append characters to a string. </em>
+                    <div class="example">
+                      <code>{{ 'sales' | append: '.jpg' }}</code>
+                      <code class="output">sales.jpg</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>prepend(input) </dt>
+                  <dd style="display: none;">
+                    <em>Use this filter to prepend characters to a string. </em>
+                  </dd>
+
+                  <dt>size(input) </dt>
+                  <dd style="display: none;">
+                    <em>Return the size of an array or string </em>
+                    <div class="example">
+                      <code>{{ 'this is an 30 character string' | size }}</code>
+                      <code class="output">30</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>join(input, segmenter = ' ') </dt>
+                  <dd style="display: none;">
+                    <em>"joins" an array with the specified character. Example: </em>
+                    <div class="example">
+                      <code>{{ product.tags | join: ', ' }}</code>
+                      <code class="output">tag1, tag2, tag3</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>downcase(input) </dt>
+                  <dd style="display: none;">
+                    <em>convert a input string to 'downcase' </em>
+                  </dd>
+
+                  <dt>upcase(input) </dt>
+                  <dd style="display: none;">
+                    <em>convert a input string to UPCASE</em>
+                  </dd>
+
+                  <dt>strip_html </dt>
+                  <dd style="display: none;">
+                    <em>This will strip all html tags from the text passed to the block. Useful in combination with truncate. </em>
+                    <code>{{ article.content | strip_html | truncate: 20 }}</code>
+                  </dd>
+
+                  <dt>strip_newlines </dt>
+                  <dd style="display: none;">
+                    <em>Removes all newlines from the input </em>
+                  </dd>
+
+                  <dt>truncate(input, characters = 100) </dt>
+                  <dd style="display: none;">
+                    <em>Truncate a string down to x characters. Take 
+care with truncating text which has html elements in it. In these cases 
+you probably want to run the string through the strip_html filter first 
+(see below).
+                    </em>
+                  </dd>
+
+                  <dt>truncatewords(input, words = 15) </dt>
+                  <dd style="display: none;">
+                    <em>Truncate string down to x words </em>
+                  </dd>
+
+                  <dt> date(input, format) </dt>
+                  <dd style="display: none;">
+                    <em>Reformat a date </em>
+                    <div class="options">
+                      <ul>
+                     <li>%a - The abbreviated weekday name (``Sun'')</li>
+  <li>%A - The full weekday name (``Sunday'')</li>
+  <li>%b - The abbreviated month name (``Jan'')</li>
+  <li>%B - The full month name (``January'')</li>
+  <li>%c - The preferred local date and time representation</li>
+  <li> %d - Day of the month (01..31)</li>
+  <li> %H - Hour of the day,24-hour clock (00..23)</li>
+  <li>%I - Hour of the day,12-hour clock (01..12)</li>
+  <li>%j - Day of the year (001..366)</li>
+  <li>%m - Month of the year (01..12)</li>
+  <li>%M - Minute of the hour (00..59)</li>
+  <li>%p - Meridian indicator (``AM'' or ``PM'')</li>
+  <li>%S - Second of the minute (00..60)</li>
+  <li>%U - Week number of the current year,
+  starting with the first Sunday as the first
+  day of the first week (00..53)</li>
+  <li>%W - Week number of the current year,
+  starting with the first Monday as the first
+  day of the first week (00..53)</li>
+  <li>%w - Day of the week (Sunday is 0,0..6)</li>
+  <li>%x - Preferred representation for the date alone,no time</li>
+  <li>%X - Preferred representation for the time alone,no date</li>
+  <li>%y - Year without a century (00..99)</li>
+  <li>%Y - Year with century</li>
+  <li>%Z - Time zone name</li>
+  <li>%% - Literal ``%'' character</li>
+                            </ul>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>first(array) </dt>
+                  <dd style="display: none;">
+                    <em>Get the first element of the passed in array </em>
+                    <div class="example">
+                      <code>
+                      {{ product.images | first | to_img }}
+                     </code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>last(array) </dt>
+                  <dd style="display: none;">
+                    <em>Get the last element of the passed in array </em>
+                    <div class="example">
+                      <code>{{ product.images | last | to_img }}
+                      </code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>newline_to_br </dt>
+                  <dd style="display: none;">
+                    <em>Inserts a &lt;br /&gt; linebreak tag in front of every \n linebreak character. </em>
+                  </dd>
+
+                  <dt>replace(input, substring, replacement) </dt>
+                  <dd style="display: none;">
+                    <em>Will replace all occurrences of a string with another. </em>
+                    <div class="example">
+                      <code>{{ product.description | replace: 'super', 'mega' }}
+                      </code>
+
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>replace_first(input, substring, replacement) </dt>
+                  <dd style="display: none;">
+                    <em>Will replace the first occurrence of a string with another. </em>
+                    <div class="example">
+                      <code>{{ product.description | replace_first: 'super', 'mega' }}
+                      </code>
+
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>remove(input, substring) </dt>
+                  <dd style="display: none;">
+                    <em>Removes all occurrences of the substring from the input. </em>
+                    <div class="example">
+                      <code>{{ product.description | remove: 'way too expensive'}}
+                      </code>
+
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>remove_first(input, substring) </dt>
+                  <dd style="display: none;">
+                    <em>Removes only the first occurrence of the substring from the input. </em>
+                    <div class="example">
+                      <code>{{ product.description | remove_first: 'remove-me'}}
+                      </code>
+
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>plus(input, operand) </dt>
+                  <dd style="display: none;">
+                    <em>Gets the result of adding input to operand. When strings are passed, it parses strings as integers before adding. </em>
+                    <div class="example">
+                      <code>Showing {{ paginate.current_offset }}-{{ paginate.current_offset | plus: paginate.page_size }} items</code>
+
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>minus(input, operand) </dt>
+                  <dd style="display: none;">
+                    <em>Gets the result of subtracting input from operand. When strings are passed, it parses strings as integers before adding. </em>
+                    <div class="example">
+                      <code>{{ product.price | minus: 10 | money_with_currency }}</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                </dl>
+
+                <ul class="section-options">
+                  <li><a class="wiki" href="http://wiki.shopify.com/FilterReference" title="FilterReference - Shopify Wiki">wiki  ›</a></li>
+                  <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+                </ul>
+              </div><!-- .block -->
+              
+       
+              
+             <div class="block" id="filter2">
+                <h2><cufon style="width: 44px; height: 18px;" alt="Filters" class="cufon cufon-canvas"><canvas style="width: 55px; height: 20px; top: -2px; left: -1px;" height="20" width="55"></canvas><cufontext>Filters</cufontext></cufon></h2>
+                <hr>
+                  <dl>
+
+                    <dt>asset_url</dt>
+                    <dd style="display: none;">
+                      <em>Gives you the url for an asset</em>
+                      <div class="example"><code>{{ 'shop.css' | asset_url }}</code></div>
+                    </dd>
+
+
+                    <dt>camelize</dt>
+                    <dd style="display: none;">
+                      <em>Converts the text into CamelCase</em>
+                      <div class="example">
+                        <code>{{ 'camel case' | camelize }}</code>
+                        <code class="output">CamelCase</code>
+                      </div><!-- .example -->
+                    </dd>
+
+                    <dt>capitalize</dt>
+                    <dd style="display: none;">
+                      <em>Capitalizes the first word</em>
+                      <div class="example">
+                        <code>{{ 'capitalize me' | capitalize }}</code>
+                        <code class="output">Capitalize me</code>
+                      </div><!-- .example -->
+                    </dd>
+
+                    <dt>default_pagination</dt>
+                    <dd style="display: none;">
+                      <em>used in conjunction with the {{ paginate }} liquid tag</em>
+                    </dd>
+
+                    <dt>global_asset_url</dt>
+                    <dd style="display: none;">
+                      <em>Returns the url for a global asset (global assets are faster than regular asset_url)</em>
+                      <div class="example">
+                        <code>{{ 'image.png' | global_asset_url }}</code>
+                      </div><!-- .example -->
+                    </dd>
+
+                    <dt>handleize</dt>
+                    <dd style="display: none;">
+                      <em>Strips and converts special characters (%@*$...etc) out of the string, so you can use the text in a url</em>
+                      <div class="example">
+                        <code>{{ '100% M&amp;Ms!!!' | handleize }}</code>
+                        <code class="output">100-m-ms </code>
+                      </div><!-- .example -->
+                    </dd>
+
+                    <dt>img_tag</dt>
+                    <dd style="display: none;">
+                        <em>Generates an img tag</em>
+                        <div class="example">Basic usage
+                        <code>{{ 'image-name.gif' | asset_url | img_tag }}</code>
+                        <code class="output">&lt;img src="http://static.shopify.com/s/files/1/0036/9672/assets/image-name.gif?1255697690" alt="" /&gt;</code>
+                        To add alt text:
+                        <code>{{ 'image-name.gif' | asset_url | img_tag:'whatever alt text' }}</code></div>
+                    </dd> 
+
+                  <dt>link_to</dt>
+                  <dd style="display: none;">
+                   <em>Generates a html link</em>
+                   <div class="example">
+                     Simple
+                     <code>{{ 'Click' | link_to: 'http://markdunkley.com' }}</code>
+                     <code class="output">&lt;a href="http://markdunkley.com" &gt;Click&lt;/a&gt;</code>
+                     Add a title
+                     <code>{{ 'Click' | link_to: 'http://markdunkley.com','Title text' }}</code>
+                     <code class="output">&lt;a href="http://markdunkley.com" title="Title text"&gt;Click&lt;/a&gt;</code>
+                   </div><!-- .example -->
+                  </dd>
+
+                  <dt>link_to_vendor</dt>
+                  <dd style="display: none;">
+                    <em>Generates a html link to the vendor of the product</em>
+                    <div class="example">
+                      <code>{{ "Pepsi" | link_to_vendor }}</code>
+                      <code class="output">&lt;a title="Pepsi" href="/collections/vendors?q=Pepsi"&gt;Pepsi&lt;/a&gt;</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>link_to_type</dt>
+                  <dd style="display: none;">
+                    <em>Generates a html link to the type of the product</em>
+                    <div class="example">
+                    <code>{{ "Cola" | link_to_type }}</code>
+                    <code class="output">&lt;a title="Cola" href="/collections/vendors?q=Cola"&gt;Cola&lt;/a&gt;</code>
+                     </div><!-- .example -->
+                  </dd>
+
+                  <dt>link_to_tag*</dt>
+                  <dd style="display: none;">
+                      <em>This filter creates a link to all products in a collection that have the given tag. </em>
+                    <div class="example">
+                    <code>{% for tag in collection.tags %}<br>
+                       {{ tag | link_to_tag: tag }}<br>
+                    {% endfor %}<br>
+                    </code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>link_to_add_tag*</dt>
+                  <dd style="display: none;">
+                   <em> This filter creates a link to all products in a 
+collection that have the given tag and all the previous tags that might 
+have been added already. </em>
+                    <div class="example">
+                     <code> {% for tag in collection.tags %}<br>
+                         {{ '+' | link_to_add_tag: tag }} {{ tag }}<br>
+                      {% endfor %}<br>
+                      </code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>link_to_remove_tag*</dt>
+
+                  <dd style="display: none;">
+                    <em>This filter creates a link to all products in a 
+collection that have the given tag and all the previous tags that might 
+have been added already. </em>
+                    <div class="example">
+                      <code>{% for tag in collection.tags %}<br>
+                         {{ '+' | link_to_add_tag: tag }} {{ tag }}<br>
+                      {% endfor %}<br>
+                      </code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>highlight_active_tag*</dt>
+                  <dd style="display: none;">
+                    <em>This filter creates a span with the class active around the tag if it is active</em>
+                    <div class="example">
+                      <code>{% for tag in collection.tags %}<br>
+                         {{ tag | highlight_active_tag | link_to_tag: tag }}<br>
+                      {% endfor %}
+                      </code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>money_with_currency</dt>
+                  <dd style="display: none;">
+                    <em>Wraps with the currency symbol and abbreviation</em>
+                    <div class="example">
+                    <code>{{ product.price | money_with_currency }}</code>
+                    <code class="output">$19.00 CAD</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>money_without_currency</dt>
+                  <dd style="display: none;">
+                    <em>Formats the price using a decimal</em>
+                    <div class="example">
+                    <code>{{ product.price | money_without_currency }}</code>
+                    <code class="output">19.00</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>money</dt>
+                  <dd style="display: none;">
+                    <em>Adds the currency symbol</em>
+                    <div class="example">
+                      <code>{{ product.price | money }}</code>
+                      <code class="output">$19.00</code>
+                    </div><!-- .example -->
+                  </dd>
+
+
+                  <dt>pluralize</dt>
+                  <dd style="display: none;">
+                    <em>Specify the pluralized version of the word you need and if the number is greater than 1 it will pluralize it.</em>
+                    <div class="example">
+                      <code>{{ 1 | pluralize: 'item', 'items' }}</code>
+                      <code class="output">items</code>
+
+                      <code>{{ 4 | pluralize: 'item', 'items' }}</code>
+                      <code class="output">item</code>
+
+                      <code>{{ cart.item_count | pluralize: 'item', 'items' }}</code>
+                      <code class="output">Will output "item" if the number items in the customers cart is 1, if greater/less than 1 it will output "items"</code>
+                    </div><!-- .example -->
+                  </dd>
+
+
+                  <dt>product_img_url</dt>
+                  <dd style="display: none;">
+                    <em>Generates the product img url</em>
+                    <div class="example">
+                      <code>{{ product.featured_image | product_img_url}}</code>
+                      <code class="output">http://static.shopify.com/files/shopify_shirt_small.png?1255</code>
+                      Specify the img size
+                      <code>{{ product.featured_image | product_img_url: 'thumb' }}</code>
+                      <code class="output">http://static.shopify.com/files/shopify_shirt_thumb.png?1255</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>script tag</dt>
+                  <dd style="display: none;">
+                    <em>Generates a script tag</em>
+                    <div class="example">
+                      <code>{{ 'shop.js' | asset_url | script_tag }} </code>
+                      <code class="output">&lt;script src="http://static.shopify.com/files/assets/shop.js" type="text/javascript"&gt;&lt;/script&gt;</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                  <dt>stylesheet_tag</dt>
+                  <dd style="display: none;">
+                    <em>Generates a stylesheet tag</em>
+                    <div class="example">
+                      <code>{{ 'shop.css' | asset_url | stylesheet_tag }}</code>
+                      <code class="output">&lt;link href="http://static.shopify.com/files/assets/shop.css" rel="stylesheet" type="text/css" media="all" /&gt;</code>
+                    </div><!-- .example -->
+
+                  </dd>
+
+
+                  <dt>url_for_type</dt>
+                  <dd style="display: none;">
+                    <em>This filter creates an url for a type name by 
+transforming it to a handle and adding the appropriate directory in 
+front of it to make the url work.</em> 
+                    <div class="example"><code>{{ "Used car" | url_for_type }}</code><code class="output">/collections/types?q=Used+car</code></div><!-- .example -->
+                  </dd>
+
+                  <dt>url_for_vendor</dt>
+                  <dd style="display: none;">
+                    <em>This filter creates a url for a vendor name by 
+transforming it to a handle and adding the appropriate directory in 
+front of it to make the url work. </em>
+                    <div class="example">
+                      <code>{{ "Armani" | url_for_vendor }}</code>
+                      <code class="output">/collections/vendor?q=Armani</code>
+                    </div><!-- .example -->
+                  </dd>
+
+                   <dt>weight_with_unit</dt>
+                    <dd style="display: none;">
+                      Formats the product variant's weight
+                      <div class="example">
+                        <code>{{ product.variants.first.weight | weight_with_unit  }}</code>
+                        <code class="output">44.0 kg</code>
+                      </div><!-- .example -->
+                    </dd>
+                    
+                    <dt>within</dt>
+                    <dd style="display: none;">
+                      Used to indicate that the filtered url of a passed in object
+                      <div class="example">
+                        <code>{{product.url | within: collection }}</code>
+                      </div><!-- .example -->
+                    </dd>
+
+                </dl>
+
+                <ul class="section-options">
+                  <li><a class="wiki" href="http://wiki.shopify.com/FilterReference" title="FilterReference - Shopify Wiki">wiki  ›</a></li>
+                  <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+                </ul>
+
+              </div><!-- .block -->
+
+            
+          </div><!-- .col-3 -->
+
+          <div class="col-3 ui-sortable" id="col3">
+            <div class="block" id="template2">
+    
+          <h2><cufon style="width: 74px; height: 18px;" alt="Template " class="cufon cufon-canvas"><canvas style="width: 89px; height: 20px; top: -2px; left: -1px;" height="20" width="89"></canvas><cufontext>Template </cufontext></cufon><cufon style="width: 65px; height: 18px;" alt="variables" class="cufon cufon-canvas"><canvas style="width: 77px; height: 20px; top: -2px; left: -1px;" height="20" width="77"></canvas><cufontext>variables</cufontext></cufon></h2>
+
+            <hr>  
+            <h3><cufon style="width: 61px; height: 14.0333px;" alt="blog.liquid" class="cufon cufon-canvas"><canvas style="width: 68px; height: 16px; top: -2px; left: -1px;" height="16" width="68"></canvas><cufontext>blog.liquid</cufontext></cufon></h3>
+            <dl>
+              <dt>blog.id</dt>
+              <dd style="display: none;">
+                <em>Returns the id of this blog. </em>
+              </dd>
+              
+              <dt>blog.handle </dt>
+              <dd style="display: none;">
+                <em>This is the accessor for this blog. It is usually the blog's title in underscore with every blank space replaced by a hyphen.</em>
+              </dd>
+              
+              <dt>blog.title </dt>
+              <dd style="display: none;">
+                <em>Returns the title of this blog (set in Shopify) </em>
+              </dd>
+              
+              <dt>blog.articles</dt>
+              <dd style="display: none;">
+                <em>Returns all of the blog's articles. </em>
+              </dd>
+              
+              <dt>blog.articles_count </dt>
+              <dd style="display: none;">
+                <em>Returns the count of all of the blog's articles. </em>
+              </dd>
+              
+              <dt>blog.url</dt>
+              <dd style="display: none;">
+                <em>Returns the relative URL of the blog.</em>
+              </dd>
+              
+              <dt>blog.comments_enabled? </dt>
+              <dd style="display: none;">
+                <em>Returns true if comments are enabled for this blog, false otherwise. </em>
+              </dd>
+              
+              <dt>blog.moderated? </dt>
+              <dd style="display: none;">
+                <em>Returns true if this blog is moderated, false otherwise. </em>
+              </dd>
+              
+                  <dt>blog.next_article </dt>
+              <dd style="display: none;">
+                <em>URL of the next (older) post. It returns false if there is no next article.</em>
+                <div class="example">
+                <code>
+  {% if blog.next_article %}<br>
+  {{ 'next post &gt;&gt;' | link_to: blog.next_article }}<br>
+  {% endif %}
+</code></div>
+              </dd>
+              
+             <dt>blog.previous_article </dt>
+              <dd style="display: none;">
+                <em>URL of the previous (newer) post. It returns false if there is no next article.</em>
+                <div class="example">
+                <code>
+  {% if blog.previous_article %}<br>
+  {{ '&lt;&lt; previous post' | link_to: blog.previous_article }}&lt;br/&gt;
+  {% endif %}<br>
+</code></div>
+              </dd>
+              
+             <dt>blog.all_tags </dt>
+              <dd style="display: none;">
+                <em>Returns all the tags of the blog</em>
+                <div class="example">
+                <code>
+                &lt;ul&gt;<br>
+{% for tag in blog.all_tags %}<br>
+{% if current_tags contains tag %}<br>
+  &lt;li class="{{ tag | handleize }} current"&gt;{{ tag | link_to_tag: tag }} - current tag&lt;/li&gt;<br>
+{% else %}<br>
+&lt;li class="{{ tag | handleize }}"&gt;{{ tag | link_to_tag: tag }}&lt;/li&gt;<br>
+{% endif %}<br>
+{% endfor %}<br>
+&lt;/ul&gt;<br>
+<br>
+
+The snippet below works for both article.liquid and blog.liquid<br>
+<br>
+
+{% if blog.all_tags != blank %}<br>
+&lt;h2&gt;Categories&lt;/h2&gt;<br>
+&lt;ul&gt;<br>
+    {% for tag in blog.all_tags %}<br>
+    &lt;li&gt;<br>
+      &lt;a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}"&gt;{{ tag }}&lt;/a&gt;<br>
+    &lt;/li&gt;<br>
+    {% endfor %}<br>
+&lt;/ul&gt;<br>
+{% endif %}<br>
+
+
+</code></div>
+              </dd>
+              
+               <dt>blog.tags </dt>
+              <dd style="display: none;">
+                <em>Returns all tags of all blogs on in this particular collection which match the current view.<br>
+ This means that if the current view is filtered to only articles with a
+ certain tags this variable will hold all the tags these remaining 
+articles actually have. </em>
+                
+              </dd>
+              
+              
+            </dl>
+            
+            <hr>
+
+            <h3><cufon style="width: 69px; height: 14.0333px;" alt="article.liquid" class="cufon cufon-canvas"><canvas style="width: 76px; height: 16px; top: -2px; left: -1px;" height="16" width="76"></canvas><cufontext>article.liquid</cufontext></cufon></h3>
+
+            <dl>
+              <dt>article.id </dt>
+              <dd style="display: none;">
+                <em>Returns the id of this article. </em>
+              </dd>
+              
+              <dt> article.title </dt>
+              <dd style="display: none;">
+                <em>Returns the title of this article. </em>
+              </dd>
+              
+              <dt>article.author </dt>
+              <dd style="display: none;">
+                <em>Returns the name of the author of this article. </em>
+              </dd>
+              
+              <dt>article.content </dt>
+              <dd style="display: none;">
+                <em>Returns this article's content (the actual article). </em>
+              </dd>
+              
+              <dt>article.created_at </dt>
+              <dd style="display: none;">
+                <em>Returns the date/time of when this article was created. </em>
+              </dd>
+              
+              <dt>article.published_at</dt>
+              <dd style="display: none;">
+                <em>Returns the date/time of when this article was last 
+published. Different from article.created_at if you import blog posts or
+ hide/show a blog post. </em>
+              </dd>
+              
+              <dt>article.url </dt>
+              <dd style="display: none;">
+                <em>Relative url where the blog can be found. Will 
+append #article-id as anchor so that the page should automatically 
+scroll to the corresponding article.</em>
+              </dd>
+              
+              <dt>article.comments </dt>
+              <dd style="display: none;">
+                <em>Returns all published comments for this article if 
+comments are enabled for the blog that this article belongs to. 
+Otherwise, returns an empty array. </em>
+              </dd>
+              
+              <dt>article.comments_count </dt>
+              <dd style="display: none;">
+                <em>Returns the number of published comments for this article. </em>
+              </dd>
+              
+              <dt>article.comment_post_url </dt>
+              <dd style="display: none;">
+                <em>Relative url where comments are listed for this article. </em>
+              </dd>
+              
+              <dt>article.comments_enabled? </dt>
+              <dd style="display: none;">
+                <em>Returns true if comments are enabled for the blog that this article belongs to, otherwise returns false. </em>
+              </dd>
+              
+              <dt>article.moderated? </dt>
+              <dd style="display: none;">
+                <em>Returns true if the blog that this article belongs to is moderated, otherwise returns false. </em>
+              </dd>
+              
+              <dt>article.excerpt </dt>
+              <dd style="display: none;">
+                <em>Renders the article's excerpt</em>
+                <code>
+{% for article in blog.articles %}
+<br>
+{% if article.excerpt == blank %}<br>
+The article has no excerpt so let's truncate the text instead:<br>
+{{ article.content | strip_html | truncate: 30 }}<br>
+
+{% else %}<br>
+Here is the article excerpt<br>
+{{ article.excerpt }}<br>
+
+{% endif %}<br>
+{% endfor %}<br>
+    </code>
+              </dd>
+              
+             <dt>article.tags </dt>
+              <dd style="display: none;">
+                <em>Returns all the tags for an article</em>
+                              </dd>
+
+            </dl>
+            
+            <dl>
+              <dt>comment.id </dt>
+              <dd style="display: none;">
+                <em>Returns the id of this comment. </em>
+              </dd>
+              
+              <dt>comment.author </dt>
+              <dd style="display: none;">
+                <em>Returns the author of this comment. </em>
+              </dd>
+              
+              <dt>comment.email </dt>
+              <dd style="display: none;">
+                <em>Returns the e-mail address of the author. </em>
+              </dd>
+              
+              <dt>comment.content </dt>
+              <dd style="display: none;">
+                <em>Returns the body of the comment (in html). </em>
+              </dd>
+              
+              <dt>comment.status </dt>
+              <dd style="display: none;">
+                <em>Returns the status of the comment. Will be one of 'unapproved', 'published', 'removed', or 'spam'. </em>
+              </dd>
+              
+              <dt>comment.url </dt>
+              <dd style="display: none;">
+                <em>Relative url where the article can be found. Will 
+append the comment's id as anchor so that the page should automatically 
+scroll to the corresponding comment. </em>
+              </dd>  
+            </dl>
+           
+
+            <hr>
+            <h3><cufon style="width: 92px; height: 14.0333px;" alt="collection.liquid" class="cufon cufon-canvas"><canvas style="width: 99px; height: 16px; top: -2px; left: -1px;" height="16" width="99"></canvas><cufontext>collection.liquid</cufontext></cufon></h3>
+            <dl>
+              <dt>collection.id </dt>
+              <dd style="display: none;">
+                <em>Returns the id of this collection </em>
+              </dd>
+              
+              <dt>collection.title</dt>
+              <dd style="display: none;">
+                <em>Returns the title of this collection </em>
+              </dd>
+              
+              <dt>collection.handle</dt>
+              <dd style="display: none;">
+                <em>Returns this collection's handle, which is by 
+default its title in lowercase. Whitespaces in the original title are 
+replaced by dashes in the handle. The handle of a collection with the 
+title "Winter Sale" would be "winter-sale". </em>
+              </dd>
+              
+              <dt>collection.description</dt>
+              <dd style="display: none;">
+                <em>Returns the description of this collection </em>
+              </dd>
+              
+              <dt>collection.all_types</dt>
+              <dd style="display: none;">
+                <em>Returns a list of all unique product types in the collection</em>
+                <code>
+                &lt;ul&gt;<br>
+{% for product_type in collection.all_types %}<br>
+  &lt;li class="{{ product_type | handleize }}"&gt;<br>
+    {{ product_type | link_to_type  }}<br>
+  &lt;/li&gt;<br>
+{% endfor %}<br>
+&lt;/ul&gt;</code>
+              </dd>
+              
+              <dt>collection.all_vendors</dt>
+              <dd style="display: none;">
+                <em>Returns a list of all unique vendors in the collection</em>
+                <code>
+                Shop by vendors:<br>
+&lt;ul&gt;<br>
+{% for product_vendor in collection.all_vendors %}<br>
+  &lt;li class="{{ product_vendor | handleize }}"&gt;<br>
+    {{ product_vendor | link_to_vendor  }}<br>
+  &lt;/li&gt;<br>
+{% endfor %}<br>
+&lt;/ul&gt;
+</code>
+              </dd>
+              
+              <dt>collection.products</dt>
+              <dd style="display: none;">
+                <em>Returns a collection of all products that are 
+associated with this collection which match the current view. This takes
+ into account things like paginate and selected tags.</em>
+              </dd>
+              
+              <dt>collection.products_count </dt>
+              <dd style="display: none;">
+                <em>Returns a count of all of the products in this 
+collection which match the current view. This takes into account things 
+like paginate and selected tags. </em>
+              </dd>
+              
+              <dt>collection.all_products</dt>
+              <dd style="display: none;">
+                <em>Returns all products that are associated with this collection. Default limit is 50, use pagination for more products</em>
+              </dd>
+              
+              <dt>collection.all_products_count </dt>
+              <dd style="display: none;">
+                <em>Returns a count of all of the products in this collection. </em>
+              </dd>
+              
+              <dt>collection.tags</dt>
+              <dd style="display: none;">
+                <em>Returns all tags of all products on in this 
+particular collection which match the current view. This means that if 
+the current view is filtered to only products with a certain tags this 
+variable will hold all the tags these remaining products actually have. </em>
+              </dd>
+              
+              <dt>collection.all_tags</dt>
+              <dd style="display: none;">
+                <em>This shows all tags associated with the collection. </em>
+              </dd>
+              
+              <dt>collection.next_product</dt>
+              <dd style="display: none;">
+                <em>These methods are available if you scope your product pages to a certain collection.</em>
+              </dd>
+              
+              <dt>collection.previous_product </dt>
+              <dd style="display: none;">
+                <em>These methods are available if you scope your product pages to a certain collection.</em>
+              </dd>
+              
+              <dt>collection.url</dt>
+              <dd style="display: none;">
+                <em>Returns the url for the specific collection. </em>
+              </dd>
+              
+              
+            </dl>
+
+            <hr>
+            <h3><cufon style="width: 69px; height: 14.0333px;" alt="pages.liquid" class="cufon cufon-canvas"><canvas style="width: 76px; height: 16px; top: -2px; left: -1px;" height="16" width="76"></canvas><cufontext>pages.liquid</cufontext></cufon></h3>
+            <dl>
+              <dt>page.id </dt>
+              <dd style="display: none;">
+                <em>Returns the id of this page. </em>
+              </dd>
+              
+              <dt>page.handle </dt>
+              <dd style="display: none;">
+                <em>This is the accessor for this page. It is usually the page's title in underscore with every blank space replaced by a dash.</em>
+              </dd>
+              
+              <dt>page.title </dt>
+              <dd style="display: none;">
+                <em>Returns the title of this page </em>
+              </dd>
+              
+              <dt>page.content </dt>
+              <dd style="display: none;">
+                <em>Returns the content of this page. </em>
+              </dd>
+              
+              <dt>page.url </dt>
+              <dd style="display: none;">
+                <em>Relative url where the page can be found. </em>
+              </dd>
+              
+              <dt>page.author </dt>
+              <dd style="display: none;">
+                <em>Returns the author of this page. </em>
+              </dd>
+              
+            </dl>
+            
+            <hr>
+            <h3><cufon style="width: 43px; height: 14.0333px;" alt="Images" class="cufon cufon-canvas"><canvas style="width: 52px; height: 16px; top: -2px; left: -1px;" height="16" width="52"></canvas><cufontext>Images</cufontext></cufon></h3>
+            <dl>
+              <dt>image.id </dt>
+              <dd style="display: none;">
+                <em>The image unique ID. </em>
+              </dd>
+              
+              <dt>image.product_id</dt>
+              <dd style="display: none;">
+                <em>The id of the product the image belongs to. Returns the same value as product.id</em>
+              </dd>
+              
+              <dt>image.position </dt>
+              <dd style="display: none;">
+                <em>The position of the image among other images of the product. The first image (featured) returns the value "1"</em>
+              </dd>
+              
+              <dt>image.src </dt>
+              <dd style="display: none;">
+                <em>The relative path to the product image. It must be 
+used in conjunction with the product_img_url filter. Returns the same 
+value as {{ image }} </em>
+                <code>{{ image.src | product_img_url: 'original' }}</code>
+              </dd>
+              
+              <dt>image.alt</dt>
+              <dd style="display: none;">
+                <em>The description of the image. If image.alt is blank it will render product.title </em>
+              </dd>
+              
+              
+              <hr>
+
+
+
+            <ul class="section-options">
+               <li><a class="wiki" href="http://docs.shopify.com/themes" title="Variable reference - Shopify Wiki">Docs  ›</a></li>
+               <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+             </ul>
+                  </dl></div><!-- .block -->
+                  
+               
+          </div><!-- .col-3 -->
+
+          <div class="col-3 last ui-sortable" id="col4">
+             <div class="block" id="template">
+            <h2><cufon style="width: 74px; height: 18px;" alt="Template " class="cufon cufon-canvas"><canvas style="width: 89px; height: 20px; top: -2px; left: -1px;" height="20" width="89"></canvas><cufontext>Template </cufontext></cufon><cufon style="width: 65px; height: 18px;" alt="variables" class="cufon cufon-canvas"><canvas style="width: 77px; height: 20px; top: -2px; left: -1px;" height="20" width="77"></canvas><cufontext>variables</cufontext></cufon></h2>
+            <hr>
+            <h3><cufon style="width: 82px; height: 14.0333px;" alt="Product.liquid" class="cufon cufon-canvas"><canvas style="width: 89px; height: 16px; top: -2px; left: -1px;" height="16" width="89"></canvas><cufontext>Product.liquid</cufontext></cufon></h3>
+            <dl>
+              <dt>product.id</dt>
+              <dd style="display: none;">
+                <em>Returns the id of this product </em>
+              </dd>
+              
+              <dt>product.title</dt>
+              <dd style="display: none;">
+                <em>Returns the title of this product
+                </em>
+              </dd>
+              
+              <dt>product.handle</dt>
+              <dd style="display: none;">
+                <em>Returns the handle of this product </em>
+              </dd>
+              
+              <dt>product.type</dt>
+              <dd style="display: none;">
+                <em>Returns the type of this product, e.g. "snowboard", "headphones" </em>
+              </dd>
+              
+              <dt>product.vendor</dt>
+              <dd style="display: none;">
+                <em>Returns the vendor of this product, e.g. "Sony", "Apple" </em>
+              </dd>
+              
+              <dt>product.price</dt>
+              <dd style="display: none;">
+                <em>Returns the price for this product. By default this is the minimum price. </em>
+              </dd>
+              
+              <dt>product.price_min</dt>
+              <dd style="display: none;">
+                <em>Returns the minimum price for this product. </em>
+              </dd>
+              
+              <dt>product.compare_at_price_min</dt>
+              <dd style="display: none;">
+                <em>Returns a "compare at" price, e.g. recommended retail price for the least expensive variant of this product. </em>
+              </dd>
+              
+              <dt>product.price_max</dt>
+              <dd style="display: none;">
+                <em>Returns the maximum price for this product. </em>
+              </dd>
+              
+              <dt>product.compare_at_price_max</dt>
+              <dd style="display: none;">
+                <em>Returns a "compare at" price, e.g. recommended retail price for the most expensive variant of this product. </em>
+              </dd>
+              
+              <dt>product.price_varies</dt>
+              <dd style="display: none;">
+                <em>Returns true if the product's variants have varying prices. Returns false if all variants have the same price. </em>
+              </dd>
+              
+              <dt>product.compare_at_price_varies</dt>
+              <dd style="display: none;">
+                <em>Returns true if the compare_at_price_min is different from compare_at_price_max</em>
+              </dd>
+              
+              <dt>product.url</dt>
+              <dd style="display: none;">
+                <em>Returns the url of this product. You need this for hyperlinking to this product's detail page from anywhere else in the store </em>
+              </dd>
+              
+              <dt>product.featured_image</dt>
+              <dd style="display: none;">
+                <em>Returns the filename with a relative path of the featured image. </em>
+              </dd>
+              
+              <dt>product.images</dt>
+              <dd style="display: none;">
+                <em>Returns a collection of all image filenames for this product. </em>
+                <code>  {% for image in product.images %}
+                {{ image.src | product_img_url: 'grande' }}
+                {% endfor %}</code>
+              </dd>
+              
+              <dt>product.description </dt>
+              <dd style="display: none;">
+                <em>Returns the description of this product. </em>
+              </dd>
+              
+              <dt>product.content </dt>
+              <dd style="display: none;">
+                <em>Alias of product.description. </em>
+              </dd>
+              
+              <dt>product.variants</dt>
+              <dd style="display: none;">
+                <em>Returns a collection of all of this product's variants. </em>
+              </dd>
+              
+              <dt>product.available</dt>
+              <dd style="display: none;">
+                <em>Returns false if all variants' quantities are zero and their policies are set to "stop selling when sold out". </em>
+              </dd>
+              
+              <dt>product.collections</dt>
+              <dd style="display: none;">
+                <em>Returns a list of collections a product is listed in. </em>
+              </dd>
+              
+              <dt>product.tags</dt>
+              <dd style="display: none;">
+                <em>Returns a list of the product's tags (represented by simple strings). </em>
+              </dd>
+              
+              <dt>product.options</dt>
+              <dd style="display: none;">
+                <em>Returns a list of the product's options. By default,
+ there is always at least one option, but there can be up to three. You 
+can do a check to see how many Options a product may have by using the 
+size filter.</em>
+              </dd>
+
+            </dl>
+            
+            <dl>
+              
+              <dt>variant.id </dt>
+              <dd style="display: none;"><em>Returns the variant’s unique id</em></dd>
+              
+              <dt>variant.title </dt>
+              <dd style="display: none;"><em>Returns the concatenation of all the variant's option values, joined by " / ".</em></dd>
+              
+              <dt>variant.price </dt>
+              <dd style="display: none;"><em>Returns the variants price</em></dd>
+              
+              <dt>variant.compare_at_price</dt>
+              <dd style="display: none;"><em>Returns the variant’s recommended retail price</em></dd>
+              
+              <dt>variant.available </dt>
+              <dd style="display: none;"><em>Returns whether the variant is available for sale or not. </em></dd>
+              
+              <dt>variant.inventory_management </dt>
+              <dd style="display: none;"><em>Returns the variant’s inventory tracking service</em></dd>
+              
+              <dt>variant.inventory_quantity </dt>
+              <dd style="display: none;"><em>Returns how many of this variants are in stock for this shop</em></dd>
+              
+              <dt>variant.weight</dt>
+              <dd style="display: none;"><em>Returns the weight of the variant</em></dd>
+              
+              <dt>variant.sku </dt>
+              <dd style="display: none;"><em>Returns the variant's SKU</em></dd>
+              
+              <dt>variant.option1 </dt>
+              <dd style="display: none;"><em>Returns the value of option1 for given variant </em></dd>
+              
+              <dt>variant.option2 </dt>
+              <dd style="display: none;"><em>If a product has a second option defined, then returns the value of this variant's option</em></dd>
+              
+              <dt>variant.option3 </dt>
+              <dd style="display: none;"><em>If a product has a third option defined</em></dd>
+            </dl>
+
+            
+            <hr>
+           <h3><cufon style="width: 25px; height: 14.0333px;" alt="Cart" class="cufon cufon-canvas"><canvas style="width: 36px; height: 16px; top: -2px; left: -1px;" height="16" width="36"></canvas><cufontext>Cart</cufontext></cufon></h3>
+            <dl>
+              <dt>cart.item_count</dt>
+              <dd style="display: none;">
+                <em>Returns the number of items currently in the shopping cart. </em>
+              </dd>
+              
+              <dt>cart.items</dt>
+              <dd style="display: none;">
+                <em>Returns all items in the shopping cart. Each one is 
+of the type Line_Item. You will want to iterate through the return value
+ (see example) </em>
+              </dd>
+              
+              <dt>cart.total_price</dt>
+              <dd style="display: none;">
+                <em>Returns the total of all the prices added up in your shopping cart. </em>
+              </dd>
+              
+              <dt>cart.total_weight</dt>
+              <dd style="display: none;">
+                <em>Returns the total weight of all items in the cart 
+combined. Weight is always returned as grams. Use weight or 
+weight_with_unit from the filter library to display the actual weight in
+ your preferred unit system.</em>
+              </dd>
+              
+              <dt>cart.note</dt>
+              <dd style="display: none;">
+                <em>allows you the option of adding a note field to your
+ checkout template. Usage of this feature is very flexible. The general 
+idea is that you simply define an input field named “note” in the form 
+that submits to ”/cart” in cart.liquid.  </em>
+              </dd>
+              
+              <dt>cart.attributes</dt>
+              <dd style="display: none;">
+                <em>The attributes property is similar to the note 
+property above in that it is an optional field you can add to your 
+shop’s checkout form. Simply define an input field named “attributes[]” 
+and it will be captured automatically and displayed on the order detail 
+page in your admin area.</em>
+              </dd>
+
+            </dl>
+
+            <hr>
+            
+
+            
+            <h3><cufon style="width: 40px; height: 14.0333px;" alt="Linklist" class="cufon cufon-canvas"><canvas style="width: 50px; height: 16px; top: -2px; left: -1px;" height="16" width="50"></canvas><cufontext>Linklist</cufontext></cufon></h3>
+            <dl>
+              <dt>linklist.id</dt>
+              <dd style="display: none;">
+                <em>Returns the id of this linklist </em>
+              </dd>
+              
+              <dt>linklist.title</dt>
+              <dd style="display: none;">
+                <em>Returns the title of this linklist </em>
+              </dd>
+              
+              <dt>linklist.handle</dt>
+              <dd style="display: none;">
+                <em>Returns the handle of this linklist </em>
+              </dd>
+              
+              <dt>linklist.links</dt>
+              <dd style="display: none;">
+                <em>Returns a collection of this linklist's links.</em>
+              </dd>
+              
+              <dt>linklist.object</dt>
+              <dd style="display: none;">
+                <em>The object the link points to. If the link points to
+ a product {{link.product.title}} will, for example, print the name of 
+the product. This is a very powerful feature and can be used for many 
+complex liquid tasks.</em>
+              </dd>
+            </dl>
+            
+                       <dl>
+           <dt>link.title </dt>
+           <dd style="display: none;"><em>Returns the description of this link</em> </dd>
+           <dt>link.active</dt>
+           <dd style="display: none;"><em>Returns true or false if the link is active</em>
+           <div class="example">
+           <code>
+           {% for link in linklists.main-menu.links %}<br>
+&lt;li&gt;<br>
+   &lt;a {% if link.active %}class="active"{% endif %}&gt; <br>
+  {{ link.title }}<br>
+   &lt;/a&gt;<br>
+&lt;/li&gt;<br>
+{% endfor %}<br>
+</code>
+           </div> </dd>
+
+                      <dt>link.url</dt>
+           <dd style="display: none;"><em>Returns the url of this link </em> </dd>
+                      <dt>link.type </dt>
+           <dd style="display: none;"><em>Returns the type of the object
+ in link.object, you can usecollection_link, http_link, product_link, 
+relative_link, page_link, blog_link </em>
+           
+           <div class="example">
+           <code>
+{% if link.type == 'collection_link' %}
+{% endif %}
+</code>
+</div>
+           
+           </dd>
+                      <dt>link.object </dt>
+           <dd style="display: none;"><em>If you're pointing to a 
+collection, then link.object is a collection object. If you're pointing 
+to a product page, then link.object is a product object.</em>
+           <div class="example">
+           <code>{% if link.type == 'collection_link' %}<br>
+{% if link.object.all_tags.size &gt; 0 %}
+           
+           </code>
+           </div>
+           
+           </dd>
+           </dl>
+
+            <hr>
+            <h3><cufon style="width: 31px; height: 14.0333px;" alt="Shop" class="cufon cufon-canvas"><canvas style="width: 38px; height: 16px; top: -2px; left: -1px;" height="16" width="38"></canvas><cufontext>Shop</cufontext></cufon></h3>
+            <dl>
+              <dt>shop.name</dt>
+              <dd style="display: none;">
+                <em>Returns a string with the shop's name </em>
+              </dd>
+              
+              <dt>shop.email</dt>
+              <dd style="display: none;">
+                <em>Returns your store's email</em>
+              </dd>
+
+              
+              <dt>shop.description</dt>
+              <dd style="display: none;">
+                <em>Returns a description of the site</em>
+                <div class="example">
+
+<code>
+  {% if shop.description != blank and template == "index" %}<br>
+  &lt;meta name="description" content="{{ shop.description }}"&gt;<br>
+  {% endif %}<br>
+</code>
+
+                </div>
+              </dd>
+              
+              <dt>shop.currency</dt>
+              <dd style="display: none;">
+                <em>Returns a string with the name of the currency (usually a 3 letter representation, e.g. USD) this shop uses. </em>
+              </dd>
+              
+              <dt>shop.url</dt>
+              <dd style="display: none;">
+                <em>Returns a full url to your shop. Note: This depends on the primary address configured under preferences/DNS Administration </em>
+              </dd>
+              
+              <dt>shop.domain</dt>
+              <dd style="display: none;">
+                <em>Returns the domain of your shop. Note: This depends on the primary address configured under preferences/DNS Administration </em>
+              </dd>
+              
+              <dt>shop.products_count</dt>
+              <dd style="display: none;">
+                <em>Returns the number of products you have online. </em>
+              </dd>
+              
+              <dt>shop.collections_count</dt>
+              <dd style="display: none;">
+                <em>Returns the number of collections you have created. </em>
+              </dd>
+              
+              <dt>shop.vendors </dt>
+              <dd style="display: none;">
+                <em>Returns a list of unique product vendors </em>
+                <code>
+&lt;ul&gt;<br>
+  {% for product_vendor in shop.vendors %}<br>
+  &lt;li class="{{ product_vendor }}"&gt;{{ product_vendor | link_to_vendor  }}&lt;/li&gt;<br>
+  {% endfor %}<br>
+ &lt;/ul&gt;<br>
+    </code>
+              </dd>
+              
+              <dt>shop.types </dt>
+              <dd style="display: none;">
+                <em>Returns a list of all unique product types in the shop </em>
+                <code>
+&lt;ul&gt;<br>
+{% for product_type in shop.types %}<br>
+  &lt;li&gt;<br>
+    {{ product_type | link_to_type  }}<br>
+  &lt;/li&gt;<br>
+{% endfor %}<br>
+&lt;/ul&gt;
+
+    </code>
+              </dd>
+              
+
+            </dl>
+             <ul class="section-options">
+                 <li><a class="wiki" href="http://wiki.shopify.com/VariableReference" title="Variable reference - Shopify Wiki">wiki  ›</a></li>
+                  <li><a style="display: none;" class="move" href="http://everpixel.com/"><img src="assets/icn-move.png" alt="Icn Move" height="11" width="11"></a></li>
+               </ul>
+            <hr>
+            
+            </div><!-- .block -->
+            
+            
+          </div><!-- .col-3 -->
+
+        </div><!-- .content -->
+
+      </div><!-- #container -->
+      
+      </div><!-- #wrapper -->
+      
+      <div id="footer-wrapper">
+        <div id="footer">
+        <p>Don't worry we'll save your cheat sheet configuration for next time</p>
+        <p><small>…and if anything goes wrong you can blame <a href="http://www.tajimaphotography.com/" title="Tajima Photography">John Tajima</a> because he helped me with the js cookie array. Thanks John.</small></p>
+        </div><!-- #footer -->
+      </div><!-- #footer-wrapper -->
+      
+      <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script><script src="assets/ga.js" type="text/javascript"></script>
+      <script type="text/javascript">
+      try {
+      var pageTracker = _gat._getTracker("UA-10154305-2");
+      pageTracker._trackPageview();
+      } catch(err) {}</script>
+    	
+    	
+      <script type="text/javascript">Cufon.now();</script>
+    
+    </body></html>

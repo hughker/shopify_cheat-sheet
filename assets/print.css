@@ -1,0 +1,64 @@
+* { margin:0; padding:0;}
+
+
+/* =============== */
+/* = General CSS = */
+/* =============== */
+body {  font-family:'lucida grande', 'Lucida sans unicode', helvetica, arial, sans-serif; font-size:13px;}
+
+h1 { display:none; }
+h1, h2, h3, h4 { letter-spacing:-1px; color:#000; margin-bottom:5px; }
+p { margin-bottom:10px;}
+ul { margin-left:0px; list-style-type:none;margin-bottom:10px;}
+dl { margin-bottom:10px;}
+
+hr { color:#d7d7d7; border:0px; height:1px; margin:10px 0;}
+em { color:#9c9c9c; font-style:normal;;}
+
+dl dt {text-decoration:none; display:block;background:#FFF url(arrow.png) no-repeat 90% 50% ;padding:5px 10px; border:solid #eee; border-width:0px 1px 1px 1px; -moz-border-radius:2px;}
+
+dl dt:first-child { border-top:1px solid #eee; }
+
+/* this is the accordian */
+
+
+dl em { background: #cae8ff; font-family:georgia, serif; color:#004e7f; padding:9px 7px; font-size:13.5px; display:block; }
+dl dd .example {  padding:3%}
+dl dd  { background:#dcf1f8; color:#363636;  -moz-border-radius: 0 0 4px 4px;}
+dl dd  code { display: block; background:#494949; color: #ececec; font-family:courier; padding:10px; margin:5px;-moz-border-radius:4px ; overflow:auto; }
+dl dd code.output { background: #2a2a2a url('bg-codeoutput.gif') repeat-x; -moz-border-radius:0 0 4px 4px;}
+dl dd code + code.output  { margin:-10px 5px 15px 5px; border-width:0px 1px 1px 1px;   }
+
+div.options { background:#d2ebff; font-family:georgia, serif; padding:9px 7px; border:1px solid #ecf7ff; border-width:1px 0px; }
+div.options ul { margin-top:7px;}
+div.options ul li { margin-bottom:2px; padding-bottom:2px; border-bottom:1px solid #c6e0e7;}
+div.options ul li:first-child { border-top:1px solid #c6e0e7;}
+/* ========== */
+/* = Layout = */
+/* ========== */
+#wrapper { margin:auto; width:90%; }
+#wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+
+.content {  position:relative; z-index:2;}
+.block {  background:#fff ; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; padding:15px 15px 10px 15px; border:1px solid #ccc; margin:0 0 20px 0; position:relative;}
+
+ul.section-options { position:absolute; top:10px; right:13px; margin:0; padding:0; display:none;}
+ul.section-options li { margin:0; padding:0; float:left; margin-right:5px;}
+ul.section-options li a { background:#c9e9ff; font-size:9.5px; font-family:verdana; color:#004a7c; text-transform:uppercase; -moz-border-radius:4px;border-radius:4px; -webkit-border-radius:4px; padding:3px; text-decoration:none;}
+ul.section-options li a:hover { background:#75c7ff;}
+/* the grid */
+/* broken right now */
+.col-1, .col-2, .col-3, .col-4, .col-4-5, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {margin-right:25px; float:left;}
+.col-12 { margin-right:0px;}
+
+
+.col-3 {width:23%;}
+
+
+.last {margin-right:0 !important;}
