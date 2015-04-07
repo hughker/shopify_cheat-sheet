@@ -21,6 +21,7 @@ img { border:0;}
 body { background: #2d2d2d repeat-x; font-size:12px; color: #2f2f2f; font-family: 'lucida grande', 'Lucida sans unicode', helvetica, arial, sans-serif;}
 h1.logo { text-align:center;}
 h1 {position:relative; z-index:1; }
+h2 { font-family: 'proxima nova', 'helvetica', arial; font-weight:normal}
 h1, h2, h3, h4 { letter-spacing:-1px; color:#262626; margin-bottom:5px; }
 h2 { font-size:18px; cursor:move;}
 p { margin-bottom:10px;}
@@ -32,10 +33,10 @@ em { color:#9c9c9c; font-style:normal;;}
 
 .new { display: inline-block; font-size:9px; text-transform: uppercase; font-weight: bold; color:#fff; padding:1px 3px; -moz-border-radius: 5px; -webkit-border-radius:5px; background: #7fb539; font-family: "helvetica neue", helvetica, arial }
 
-dl dt {text-decoration:none; display:block;background:#ececec url(arrow.png) no-repeat 95% 50% ;padding:5px 10px; border:solid #dedede; border-width:0px 1px 1px 1px; -moz-border-radius:2px;-webkit-radius:2px; cursor:pointer;}
+dl dt {text-decoration:none; display:block;background:#ececec url(arrow.png) no-repeat 95% 50% ;padding:5px 10px; border:solid #dedede; border-width:0px 1px 1px 1px; -moz-border-radius:2px;-webkit-radius:2px; cursor:pointer; word-wrap:break-word}
 dl dt:hover { background-color:#d7efff; background-position:95% -30%; color:#0763a1;}
 dl dt:first-child { border-top:1px solid #dedede; }
-dl dd { display:none;}
+dl dd { display:none; word-wrap: break-word}
 
 /* this is the accordian */
 .active { background-color:#2390da ;background-position:95% 130%; display:block; color:#FFF; letter-spacing:-0.5px; font-weight:bold; border:0;}
@@ -54,11 +55,14 @@ div.options ul { margin-top:7px;}
 div.options ul li { margin-bottom:2px; padding-bottom:2px; border-bottom:1px solid #c6e0e7;}
 div.options ul li:first-child { border-top:1px solid #c6e0e7;}
 
+.main-nav-cta { border:2px solid #e0e0e0; padding:6px 11px; border-radius:4px; transition:color 0.5s ease; text-decoration:none;}
+.main-nav-cta:hover { border: 2px solid #fff; text-decoration:none!important;}
 /* ========== */
 /* = Layout = */
 /* ========== */
 ul.images  li { }
 
+.logo { margin-left:12px; margin-top:7px; fill:#fff; float:left; }
 
 
 /* sticky footer */
@@ -89,7 +93,6 @@ ul.section-options li a.move img { position:relative; top:2px;}
 ul.section-options li .move {  padding:7px; margin-right:-7px;}
 
 /* the grid */
-/* broken right now */
 .col-1, .col-2, .col-3, .col-4, .col-4-5, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {padding:0 0.5%; margin-right:0.5%; float:left; }
 .col-12 { margin-right:0px;}
 .col-3 {width:23.5%; min-height:100px;  -moz-border-radius:5px; -webkit-border-radius:5px;}
@@ -100,7 +103,7 @@ ul.section-options li .move {  padding:7px; margin-right:-7px;}
 #navigation ul { float:right; margin-top:19px; margin-right:3%;}
 #navigation ul li { float:left; margin-left:25px;}
 #navigation ul li:first-child { margin-left:0;}
-#navigation ul li.feedback { border-left:1px solid gray; margin:0 0 0 13px; padding: 0 0 0 13px;opacity:0.5;}
+
 #navigation img.logo { float:left; margin-top:18px; margin-left:3%; margin-right:15px;}
 #navigation a { color:#e0e0e0; text-decoration:none;}
 #navigation a:hover { text-decoration:underline; color:#FFF;}
