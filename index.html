@@ -597,7 +597,7 @@ layout "none" %} .</em>
 <pre>&lt;tr&gt;
 &lt;th&gt;&lt;label for="my_img"&gt;Settings Name&lt;/label&gt;&lt;/th&gt;
 &lt;td&gt;
-  &lt;input type="file" id="my_img" name="my_img.jpg"  data-max-width="100" data-max-height="200" /&gt;
+  &lt;input type="file" id="quot;my_img" name="my_img.jpg"  data-max-width="100" data-max-height="200" /&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
 </pre>
@@ -1198,7 +1198,7 @@ have been added already. </em>
 
 
 
-                  <dt>sort_by <span class="new">New</span></dt>
+                  <dt>sort_by </dt>
                   <dd style="display: none;">
                     <em>To be used in conjunction with {{ collection.url
  }} to sort a collection by best-selling, price-ascending,
@@ -1286,6 +1286,12 @@ front of it to make the url work. </em>
             <hr>
             <h3>blog.liquid </h3>
             <dl>
+              <dt>blogs['the-handle'].variable</dt>
+              <dd style="display: none;">
+                <em>Access any blog globally in your store</em>
+                <code>{{ blogs['the-handle'].title }}</code>
+              </dd>
+
               <dt>blog.id</dt>
               <dd style="display: none;">
                 <em>Returns the id of this blog. </em>
@@ -1529,6 +1535,13 @@ scroll to the corresponding comment. </em>
             <hr>
             <h3>collection.liquid </h3>
             <dl>
+
+              <dt>collections['the-handle'].variable</dt>
+              <dd style="display: none;">
+                <em>Access any collection globally in your store</em>
+                <code>{{ collections['the-handle'].url }}</code>
+              </dd>
+
               <dt>collection.id </dt>
               <dd style="display: none;">
                 <em>Returns the id of this collection </em>
@@ -1638,6 +1651,13 @@ variable will hold all the tags these remaining products actually have. </em>
             <hr>
             <h3>pages.liquid </h3>
             <dl>
+
+              <dt>page['the-handle'].variable</dt>
+              <dd style="display: none;">
+                <em>Access any page globally in your store</em>
+                <code>{{ page['the-handle'].variable }}</code>
+              </dd>
+
               <dt>page.id </dt>
               <dd style="display: none;">
                 <em>Returns the id of this page. </em>
@@ -1777,6 +1797,13 @@ value as {{ image }} </em>
             <hr>
             <h3>Product.liquid </h3>
             <dl>
+
+              <dt>all_products['the-handle'].variable <span class="new">New</span></dt>
+              <dd style="display: none;">
+                <em>Access any product globally in your store. You can do this with most other objects like blogs and collections.</em>
+                <code>{{ all_products['the-handle'].title }}</code>
+              </dd>
+
               <dt>product.id</dt>
               <dd style="display: none;">
                 <em>Returns the id of this product </em>
@@ -1876,7 +1903,7 @@ value as {{ image }} </em>
                 <em>Returns false if all variants' quantities are zero and their policies are set to "stop selling when sold out". </em>
               </dd>
 
-              <dt>product.template_suffix <span class="new">New</span></dt>
+              <dt>product.template_suffix </dt>
               <dd style="display: none;">
                 <em>If using a custom product template (like
 product.bike-landing.liquid) then it will return the name of the
@@ -1884,12 +1911,12 @@ template (bike-landing)</em>
               </dd>
 
 
-              <dt>product.selected_variant <span class="new">New</span></dt>
+              <dt>product.selected_variant </dt>
               <dd style="display: none;">
                 <em>Returns the variant object if passed in through the url (ex: ?variant=123 would return "123"). </em>
               </dd>
 
-              <dt>product.selected_or_first_<br>available_variant <span class="new">New</span></dt>
+              <dt>product.selected_or_first_<br>available_variant </dt>
               <dd style="display: none;">
                 <em>Returns the variant objet if there is a ?variant=
 url parameter. If there is no param the first variant with inventory
@@ -2015,19 +2042,22 @@ page in your admin area.</em>
 
             <h3>Linklist</h3>
             <dl>
-              <dt>linklist.id</dt>
+
+              <dt>linklists['the-handle'].variable</dt>
               <dd style="display: none;">
-                <em>Returns the id of this linklist </em>
+                <em>Access any blog globally in your store</em>
+                <code>{{ linklists['footer'].handle }}</code>
               </dd>
 
               <dt>linklist.title</dt>
               <dd style="display: none;">
-                <em>Returns the title of this linklist </em>
+                <em>Returns the title of this linklist</em>
               </dd>
 
               <dt>linklist.handle</dt>
               <dd style="display: none;">
                 <em>Returns the handle of this linklist </em>
+                <code>{{ linklists.footer.handle }}</code>
               </dd>
 
               <dt>linklist.links</dt>
@@ -2093,29 +2123,35 @@ to a product page, then link.object is a product object.</em>
             <hr>
             <h3>Shop</h3>
             <dl>
-              <dt>shop.name</dt>
+
+              <dt>shop.address.summary</dt>
               <dd style="display: none;">
-                <em>Returns a string with the shop's name </em>
+                <em>Returns the shop address in this format: street, city, state/province, country. This is defined in your shop settings.</em>
               </dd>
 
-              <dt>shop.email</dt>
+              <dt>shop.address.street</dt>
               <dd style="display: none;">
-                <em>Returns your store's email</em>
+                <em>Returns the street address</em>
               </dd>
 
-
-              <dt>shop.description</dt>
+              <dt>shop.address.city</dt>
               <dd style="display: none;">
-                <em>Returns a description of the site</em>
-                <div class="example">
+                <em>Returns the name of the city</em>
+              </dd>
 
-<code>
-  {% if shop.description != blank and template == "index" %}<br>
-  &lt;meta name="description" content="{{ shop.description }}"&gt;<br>
-  {% endif %}<br>
-</code>
+              <dt>shop.address.province</dt>
+              <dd style="display: none;">
+                <em>Returns the name of the state or province eh</em>
+              </dd>
 
-                </div>
+              <dt>shop.address.country</dt>
+              <dd style="display: none;">
+                <em>Returns the name of the country</em>
+              </dd>
+
+              <dt>shop.address.zip</dt>
+              <dd style="display: none;">
+                <em>Returns the zip (or postal code)</em>
               </dd>
 
               <dt>shop.currency</dt>
@@ -2123,9 +2159,21 @@ to a product page, then link.object is a product object.</em>
                 <em>Returns a string with the name of the currency (usually a 3 letter representation, e.g. USD) this shop uses. </em>
               </dd>
 
-              <dt>shop.url</dt>
+              <dt>shop.collections_count</dt>
               <dd style="display: none;">
-                <em>Returns a full url to your shop. Note: This depends on the primary address configured under preferences/DNS Administration </em>
+                <em>Returns the number of collections you have created. </em>
+              </dd>
+
+              <dt>shop.description</dt>
+              <dd style="display: none;">
+                <em>Returns a description of the site</em>
+                <div class="example">
+                  <code>
+                    {% if shop.description != blank and template == "index" %}<br>
+                    &lt;meta name="description" content="{{ shop.description }}"&gt;<br>
+                    {% endif %}<br>
+                  </code>
+                </div>
               </dd>
 
               <dt>shop.domain</dt>
@@ -2133,15 +2181,79 @@ to a product page, then link.object is a product object.</em>
                 <em>Returns the domain of your shop. Note: This depends on the primary address configured under preferences/DNS Administration </em>
               </dd>
 
+              <dt>shop.email</dt>
+              <dd style="display: none;">
+                <em>Returns your store's email</em>
+              </dd>
+
+              <dt>shop.name</dt>
+              <dd style="display: none;">
+                <em>Returns a string with the shop's name </em>
+              </dd>
+
+              <dt>shop.enabled_payment_types</dt>
+              <dd style="display: none;">
+                <em>Returns an array of accepted payment methods for the shop. You can also get SVG icons by passing the "payment_type_img_url". </em>
+                <div class="example">
+                  <code>
+                    {% for type in shop.enabled_payment_types %}
+                      &lt;img src="{{ type | payment_type_img_url }}" /&gt;
+                    {% endfor %}
+                  </code>
+                </div>
+              </dd>
+
+              <dt>shop.metafields</dt>
+              <dd style="display: none;">
+                <em>Returns all the shop's metafields, remember these have to be set up using the Shopify API or using an app</em>
+              </dd>
+
+              <dt>shop.money_format</dt>
+              <dd style="display: none;">
+                <em>Shows how the money is formatted in the Shopify store without showing the currency</em>
+              </dd>
+
+              <dt>shop.money_with_currecny_format</dt>
+              <dd style="display: none;">
+                <em>Shows how the money is formatted in the Shopify store while displaying the currency</em>
+              </dd>
+
+              <dt>shop.locale</dt>
+              <dd style="display: none;">
+                <em>Returns teh locale of the shop (ex: en, fr), this is mainly used for theme developers making <a href="https://docs.shopify.com/themes/theme-development/translations">themes easily translatable</a></em>
+              </dd>
+
+              <dt>shop.password_message</dt>
+              <dd style="display: none;">
+                <em>When you put a password in the settings of your
+Shopify admin you can also select a message to tell all visitors why the
+ shop is password protected. This liquid variable shows the password
+message.</em>
+              </dd>
+
+              <dt>shop.permanent_domain</dt>
+              <dd style="display: none;">
+                <em>Returns the .myshopify.com URL of a shop</em>
+              </dd>
+
+
+
+
+              <dt>shop.url</dt>
+              <dd style="display: none;">
+                <em>Returns a full url to your shop. Note: This depends on the primary address configured under preferences/DNS Administration </em>
+              </dd>
+
+
+
+
+
               <dt>shop.products_count</dt>
               <dd style="display: none;">
                 <em>Returns the number of products you have online. </em>
               </dd>
 
-              <dt>shop.collections_count</dt>
-              <dd style="display: none;">
-                <em>Returns the number of collections you have created. </em>
-              </dd>
+
 
               <dt>shop.vendors </dt>
               <dd style="display: none;">
