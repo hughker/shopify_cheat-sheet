@@ -1,7 +1,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-  
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -17,14 +17,14 @@
   <script src="cookiesheet.js" type="text/javascript" charset="utf-8"></script>
 
   <title>Shopify Cheat Sheet - Liquid variables</title>
-  
+
 </head>
 
 <body>
 <div id="wrapper">
   <div id="navigation">
-  
-  
+
+
 <span class="logo">
 
 
@@ -155,14 +155,14 @@
 
 
     <p class="shameless-promo"><a class="twitter" href="http://twitter.com/markdunkley">follow on twitter <img src="icon-twitter.png" width="17" height="12" alt="Icon Twitter" /></a></p>
-   
+
     <ul>
     <li><a href="http://shopify.github.io/Timber/">Timber framework</a>
       <li><a href="http://docs.shopify.com">Docs</a></li>
        <li><a href="http://snapflyers.com">Snap Flyers</a></li>
 
       <li><a href="http://www.shopify.com/?ref=markdunkley&note=idontmakemoneyoffthis" class="main-nav-cta" title="Sign up for shopify">Create an online store</a></li>
-      
+
     </ul>
   </div><!-- #navigation -->
 
@@ -184,7 +184,7 @@
                     <code class="output">My name is Dunkley</code>
                   </div><!-- .example -->
                 </dd>
-                
+
                <dt>{% raw %}</dt>
                 <dd>
                   <em>No liquid will be parsed in within these tags</em>
@@ -192,11 +192,11 @@
                     <code>{% raw %} {{mustache.js}} {% endraw %}</code>
                   </div><!-- .example -->
                 </dd>
-                
+
                 <dt>{% if  %}</dt>
                 <dd>
                  <em>"If" statements let you determine if something is true or not</em>
-                 
+
                  <div class="example">
                    if username is elvis
                    <code>{% if user.name == 'elvis' %}<br />
@@ -213,10 +213,10 @@
                      hi stranger<br />
                    {% endif %}</code>
                    <code class="output">hey ugly</code>
-                   
+
                  </div><!-- .example -->
                 </dd>
-                
+
                 <dt>{% unless %}</dt>
                 <dd><em>If not true, then it will do something</em>
                 <div class="example">
@@ -227,7 +227,7 @@
                    <code class="output">hey ugly</code>
                 </div><!-- .example" -->
                 </dd>
-                
+
                 <dt>{% case %}</dt>
                 <dd>
                   <em>Used when you have consistent cases of something</em>
@@ -244,7 +244,7 @@
                     <code class="output">This is a cookie</code>
                   </div><!-- .example -->
                 </dd>
-                
+
                 <dt>{% cycle %}</dt>
                 <dd>
                   <em>Use when you need to alternate between something.</em>
@@ -255,21 +255,21 @@
                     {% cycle 'one', 'two' %}
                     </code>
                     <code class="output">one<br />two<br />one</code>
-                    
+
                     Group cycles
-                    <code>{% cycle 'group 1': 'one', 'two', 'three' %}<br /> 
-                    {% cycle 'group 1': 'one', 'two', 'three' %}<br /> 
-                    {% cycle 'group 2': 'one', 'two', 'three' %}<br /> 
+                    <code>{% cycle 'group 1': 'one', 'two', 'three' %}<br />
+                    {% cycle 'group 1': 'one', 'two', 'three' %}<br />
+                    {% cycle 'group 2': 'one', 'two', 'three' %}<br />
                     {% cycle 'group 2': 'one', 'two', 'three' %}<br />
                     </code>
                     <code class="output">one
-                    two 
+                    two
                     one
                     two
                     </code>
                   </div><!-- .example -->
                 </dd>
-                
+
                 <dt>
                   {% for %}
                 </dt>
@@ -286,19 +286,19 @@
                     For Loop [product are: hat, pez, pad]
                     <code>{% for product in collection.products %} <br />
                        {{ product.name }},<br />
-                     {% endfor %} 
+                     {% endfor %}
                     </code>
                     <code class="output">hat, pez, pad,</code>
-                    
+
                     Limit [product are: hat, pez, pad]
                     <code>{% for product in collection.products limit:2 %} <br />
                        {{ product.name }},<br />
-                     {% endfor %} 
+                     {% endfor %}
                     </code>
                     <code class="output">hat, pez,</code>
                   </div><!-- .example -->
                 </dd>
-                
+
                 <dt>{% tablerow %}</dt>
                 <dd>
                  <em> Generate table rows/cells</em>
@@ -308,7 +308,7 @@
                     <li>cols:</li>
                     <li>limit:</li>
                    </ul>
-                  
+
                  </div><!-- .options -->
                  <div class="example">
                    Example [products are: hat, pez, pad]
@@ -331,7 +331,7 @@
                      </code>
                  </div><!-- .example -->
                 </dd>
-                
+
                 <dt>{% assign %}</dt>
                 <dd>
                  <em>Create variables</em>
@@ -343,7 +343,7 @@
                    <code class="output">The if statement is valid</code>
                  </div><!-- .example -->
                 </dd>
-                
+
                 <dt>{% capture %}</dt>
                 <dd>
                  <em>Similar to {% assign %} and allows you to "capture" a variable you output</em>
@@ -357,11 +357,11 @@
                    <code class="output">/products/apple</code>
                  </div><!-- .example -->
                 </dd>
-                
-                
-                
-                
-                
+
+
+
+
+
                 <dt>{% include %}</dt>
                 <dd>
                   <em>Insert a snippet into your layout</em>
@@ -388,7 +388,7 @@
 
                       color: 'red'<br />
                       shape: 'square'<br />
-                      
+
                     </code>
                   </div><!-- .example -->
                 </dd>
@@ -413,17 +413,17 @@
                     <li><strong>contains</strong> includes the substring if used on a string, or element if used on an array</li>
 
                   </ul></div>
-                  
+
                 </dd>
               </dl>
-              
+
                  <ul class="section-options">
                     <li><a class="wiki" href="http://wiki.shopify.com/UsingLiquid" title="Using liquid - Shopify Wiki" >Docs &rsaquo;</a></li>
                     <li><a class="move" href="http://everpixel.com"><img src="icn-move.png" width="11" height="11" alt="Icn Move" /></a></li>
                   </ul>
-                  
+
             </div><!-- .block -->
-            
+
                <div  id='images' class="block clearfix" >
                   <h2>Images</h2>
                   <hr />
@@ -446,7 +446,7 @@
                      <li><a class="move" href="http://everpixel.com"><img src="icn-move.png" width="11" height="11" alt="Icn Move" /></a></li>
                    </ul>
                 </div><!-- .block -->
-                
+
                 <div class="block" id='essentials'>
                   <h2>Misc</h2>
                   <hr />
@@ -463,7 +463,7 @@
                         <code>{% logic %}</code>
                       </div><!-- .example -->
                     </dd>
-                    
+
                     <dt>page_description</dt>
                     <dd>
                       <em>Depending on which template Shopify is rendering it will pull a Google friendly description of the page. Use it for meta descriptions.</em>
@@ -473,11 +473,11 @@
                         </code>
                       </div><!-- .example -->
                     </dd>
-                    
-                    
-                    
 
-                    
+
+
+
+
                     <dt>page_title</dt>
                     <dd>
                       <em>Renders the template's default page title text selected by Shopify</em>
@@ -487,7 +487,7 @@
                         </code>
                       </div><!-- .example -->
                     </dd>
-                    
+
                      <dt>if variable is blank/empty/null</dt>
                     <dd>
                       <em>Instead of doing == "", or == empty you can take advantage of "nil" by simply writing {% if variableName %}. If there is nothing the variable will return false</em>
@@ -499,8 +499,8 @@ We have a tracking number!
                         </code>
                       </div><!-- .example -->
                     </dd>
-                    
-                    
+
+
                    <dt>Search only products</dt>
                     <dd>
                       <em>Only returns products in the search results</em>
@@ -510,8 +510,8 @@ We have a tracking number!
                         </code>
                       </div><!-- .example -->
                     </dd>
-                    
-                    
+
+
                    <dt>layout</dt>
                     <dd>
                       <em>By default "layout.liquid" is applied to all themes, but you can specify a new layout by creating a new layout and use the tag {% layout "layout2" %} or if you don't want a layout use {% layout "none" %} .</em>
@@ -521,14 +521,14 @@ We have a tracking number!
                         </code>
                       </div><!-- .example -->
                     </dd>
-                    
+
                    <dt>current_tags</dt>
                     <dd>
                       <em>Renders a list of all the tags, only works on collection.liquid and blog.liquid.</em>
                     </dd>
-                    
-                    
-           
+
+
+
 
                     <dt>What is a handle?</dt>
                     <dd>
@@ -540,9 +540,9 @@ We have a tracking number!
                         <li><a class="move" href="http://everpixel.com"><img src="icn-move.png" width="11" height="11" alt="Icn Move" /></a></li>
                       </ul>
                     </div><!-- .block -->
-                    
-                    
-                    
+
+
+
 <div class="block" id='themesettings'>
 <h2>Theme Settings</h2>
 <hr />
@@ -550,84 +550,114 @@ We have a tracking number!
   <dt>Text field</dt>
   <dd>
 <pre>
-&lt;tr&gt;
-  &lt;th&gt;&lt;label for=&quot;my_text&quot;&gt;Name of this setting.&lt;/label&gt;&lt;/th&gt;
-  &lt;td&gt;&lt;input type=&quot;text&quot; id=&quot;my_text&quot; name=&quot;my_text&quot; class=&quot;text&quot; value=&quot;&quot;/&gt;&lt;/td&gt;
-&lt;/tr&gt;
+{
+  "type":      "text",
+  "id":        "id",
+  "label":     "Text",
+  "default":   "value",
+  "info":      "Text",
+  "placeholder": "Text"
+},
 </pre>
   </dd>
 
   <dt>Multiline text field</dt>
   <dd>
 <pre>
-&lt;tr&gt;
-  &lt;th&gt;&lt;label for=&quot;my_textarea&quot;&gt;Name of this setting.&lt;/label&gt;&lt;/th&gt;
-  &lt;td&gt;&lt;textarea rows=&quot;4&quot; cols=&quot;20&quot; id=&quot;my_textarea&quot; name=&quot;my_textarea&quot; class=&quot;textarea&quot; value=&quot;&quot;/&gt;&lt;/td&gt;
-&lt;/tr&gt;
+{
+  "type":      "textarea",
+  "id":        "id",
+  "label":     "Text",
+  "default":   "value",
+  "info":      "Text",
+  "placeholder": "Text"
+},
 </pre>
   </dd>
-  
+
   <dt>Select menus </dt>
   <dd>
 <pre>
-&lt;tr&gt;
-  &lt;th&gt;&lt;label for=&quot;my_dropdown&quot;&gt;Name of this Setting&lt;/label&gt;&lt;/th&gt;
-  &lt;td&gt;
-    &lt;select name=&quot;my_dropdown&quot; id=&quot;my_dropdown&quot;&gt;
-      &lt;option value=&quot;1&quot; selected=&quot;selected&quot;&gt;1&lt;/option&gt;
-      &lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
-      &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
-      &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
-    &lt;/select&gt;
-  &lt;/td&gt;
-&lt;/tr&gt;
+{
+  "type":      "select",
+  "id":        "id",
+  "label":     "Text",
+  "options": [
+    {
+      "group": "value",
+      "value": "value",
+      "label": "Text"
+    },
+    {
+      "group": "value",
+      "value": "value",
+      "label": "Text"
+    }
+  ],
+  "default":   "value",
+  "info":      "Text"
+},
 </pre>
   </dd>
-  
+  <dt>Radio Buttons</dt>
+  <dd>
+<pre>
+{
+  "type": "radio",
+  "id": "icon_cart",
+  "options": [
+    { "value": "none", "label": "None"},
+    { "value": "light", "label": "Light"},
+    { "value": "dark", "label": "Dark"}
+  ],
+  "label": "Cart icon"
+},
+</pre>
+  </dd>
+
   <dt>Checkboxes</dt>
   <dd>
 <pre>
-&lt;tr&gt;
-  &lt;th&gt;&lt;label for=&quot;my_checkbox&quot;&gt;Name of this Setting&lt;/label&gt;&lt;/th&gt;
-  &lt;td&gt;&lt;input type=&quot;checkbox&quot; id=&quot;my_checkbox&quot; name=&quot;my_checkbox&quot; value=&quot;1&quot; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
+{
+  "type":      "checkbox",
+  "id":        "id",
+  "label":     "Text",
+  "default":   false,
+  "info":      "Text"
+},
 </pre>
   </dd>
-  
-  <dt>File Uploads</dt>
+
+  <dt>Image Uploads</dt>
   <dd>
 <pre>
-&lt;tr&gt;
-&lt;th&gt;&lt;label for=&quot;my_img&quot;&gt;Settings Name&lt;/label&gt;&lt;/th&gt;
-&lt;td&gt;
-  &lt;input type=&quot;file&quot; id=&quot;quot;my_img&quot; name=&quot;my_img.jpg&quot;  data-max-width=&quot;100&quot; data-max-height=&quot;200&quot; /&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
+{
+  "type":      "image",
+  "id":        "logo.png",
+  "label":     "Text",
+  "max-width":  480,
+  "max-height": 200,
+  "info":      "Text"
+},
 </pre>
   </dd>
-  
+
   <dt>CSS/Specialty Classes</dt>
   <dd>
-<pre>
-&lt;input class=<strong>&quot;color&quot;</strong> name="background_color" value=&quot;#332211&quot; /&gt;
 
-&lt;select class=&quot;<strong>collection</strong>&quot; name=&quot;frontpage_collection&quot; /&gt;
-  
-&lt;select class=&quot;<strong>font</strong>&quot; name=&quot;header_font&quot; id=&quot;header_font&quot;&gt;
-  &lt;option value=&quot;Georgia, Utopia, &apos;Times New Roman&apos;, Times, serif&quot; selected=&quot;selected&quot;&gt;Georgia&lt;/option&gt;
-&lt;/select&gt;
+  <ul>
+    <li><code>color</code>	Color picker</li>
+    <li><code>font</code> Font picker</li>
+    <li><code>collection</code>	Collections drop-down</li>
+    <li><code>product</code>	Products drop-down</li>
+    <li><code>blog</code>	Blogs drop-down</li>
+    <li><code>page</code>	Pages drop-down</li>
+    <li><code>link_list</code>	Link lists drop-down</li>
+    <li><code>snippet</code>	Snippets drop-down</li>
+  </ul>
 
-&lt;select class=&quot;<strong>blog</strong>&quot; name=&quot;main_blog&quot; /&gt;
-
-&lt;select class=&quot;<strong>page</strong>&quot; name=&quot;welcome_message&quot; /&gt;
-
-&lt;select class=&quot;<strong>linklist</strong>&quot; name=&quot;sidebar_linklist&quot; /&gt;  
-
-&lt;select class=&quot;<strong>snippet</strong>&quot; name=&quot;sidebar_widget&quot; /&gt;
-
-</pre>
   </dd>
-  
+
     <dt>Shopify credit</dt>
   <dd><em>Necessary for any themes on the theme store</em>
 <pre>
@@ -635,7 +665,7 @@ We have a tracking number!
 </pre>
   </dd>
 
-  
+
 </dl>
     <ul class="section-options">
       <li><a class="wiki" href="http://docs.shopify.com/themes/theme-templates/9-settings" title="Theme SEttings - Shopify Wiki" >Docs  &rsaquo;</a></li>
@@ -643,13 +673,13 @@ We have a tracking number!
     </ul>
   </div><!-- .block -->
 
-                    
-                 
-                
+
+
+
 
                 <div class="block" id='helpers'>
                   <h2>Loop Helpers</h2>
-                  
+
                   <hr />
                   <dl>
                     <dt>
@@ -659,10 +689,10 @@ We have a tracking number!
                       <em>length of the entire for loop</em>
                     </dd>
                     <dt>
-                       forloop.index   
+                       forloop.index
                     </dt>
                     <dd>
-                      <em>index of the current iteration</em> 
+                      <em>index of the current iteration</em>
                     </dd>
                     <dt>
                        forloop.index0
@@ -689,7 +719,7 @@ We have a tracking number!
                       <em>is this the first iteration?</em>
                     </dd>
                     <dt>
-                      forloop.last 
+                      forloop.last
                     </dt>
                     <dd>
                       <em>is this the last iteration? </em>
@@ -700,13 +730,13 @@ We have a tracking number!
                       <li><a class="move" href="#"><img src="icn-move.png" width="11" height="11" alt="Icn Move" /></a></li>
                     </ul>
                 </div><!-- .block -->
-                
-                
-                
-                
+
+
+
+
                 <div class="block" id='helpers'>
                   <h2>Pagination</h2>
-                  
+
                   <hr />
                   <dl>
                     <dt>
@@ -716,10 +746,10 @@ We have a tracking number!
                       <em>The size of each page. That's the amount of items displayed.</em>
                     </dd>
                     <dt>
-                      paginate.current_page   
+                      paginate.current_page
                     </dt>
                     <dd>
-                      <em>On which page are we right now? You can also use {{ current_page }} as well.</em> 
+                      <em>On which page are we right now? You can also use {{ current_page }} as well.</em>
                     </dd>
                     <dt>
                        paginate.current_offset
@@ -770,14 +800,14 @@ We have a tracking number!
                       <em> URL of the link </em>
                     </dd>
                                         <dt>
-                      paginate.parts 
+                      paginate.parts
                     </dt>
                     <dd>
                       <em>Array of all the parts which make up a good navigation for this pagination. Each element will have any of these three elements: part.is_link (Is this part a link?), part.title (Link Title), part.url (Link URL)</em>
                     </dd>
                                         <dt>
-                      part.is_link 
-                    </dt>                  
+                      part.is_link
+                    </dt>
                   </dl>
                   <ul class="section-options">
                       <li><a class="wiki" href="http://docs.shopify.com/themes/liquid-variables/paginate" title="Using liquid - Shopify Wiki" >Docs  &rsaquo;</a></li>
@@ -785,15 +815,15 @@ We have a tracking number!
                     </ul>
                 </div><!-- .block -->
 
-                
 
-       
+
+
 
           </div><!-- . col-3 -->
-          
+
           <div class="col-3" id='col2'>
-          
-          
+
+
               <div class="block" id='filters'>
                 <h2>Liquid Filters</h2>
                 <hr />
@@ -994,9 +1024,9 @@ We have a tracking number!
                   <li><a class="move" href="http://everpixel.com"><img src="icn-move.png" width="11" height="11" alt="Icn Move" /></a></li>
                 </ul>
               </div><!-- .block -->
-              
-       
-              
+
+
+
              <div class="block" id='filter2'>
                 <h2>Filters</h2>
                 <hr />
@@ -1057,7 +1087,7 @@ We have a tracking number!
                         <code class="output">&lt;img src=&quot;http://static.shopify.com/s/files/1/0036/9672/assets/image-name.gif?1255697690&quot; alt=&quot;&quot; /&gt;</code>
                         To add alt text:
                         <code>{{ 'image-name.gif' | asset_url | img_tag:'whatever alt text' }}</code></div>
-                    </dd> 
+                    </dd>
 
                   <dt>link_to</dt>
                   <dd>
@@ -1190,9 +1220,9 @@ We have a tracking number!
                       <code class="output">http://static.shopify.com/files/shopify_shirt_thumb.png?1255</code>
                     </div><!-- .example -->
                   </dd>
-                  
-                  
-                   
+
+
+
                   <dt>sort_by </dt>
                   <dd>
                     <em>To be used in conjunction with {{ collection.url }} to sort a collection by best-selling, price-ascending, price-descending, title-ascending, title-descending, created-ascending, created-descending. <a href="https://gist.github.com/carolineschnapp/11352987">Check out this liquid snippet.</a></em>
@@ -1224,7 +1254,7 @@ We have a tracking number!
 
                   <dt>url_for_type</dt>
                   <dd>
-                    <em>This filter creates an url for a type name by transforming it to a handle and adding the appropriate directory in front of it to make the url work.</em> 
+                    <em>This filter creates an url for a type name by transforming it to a handle and adding the appropriate directory in front of it to make the url work.</em>
                     <div class="example"><code>{{ "Used car" | url_for_type }}</code><code class="output">/collections/types?q=Used+car</code></div><!-- .example -->
                   </dd>
 
@@ -1245,7 +1275,7 @@ We have a tracking number!
                         <code class="output">44.0 kg</code>
                       </div><!-- .example -->
                     </dd>
-                    
+
                     <dt>within</dt>
                     <dd>
                       Used to indicate that the filtered url of a passed in object
@@ -1263,15 +1293,15 @@ We have a tracking number!
 
               </div><!-- .block -->
 
-            
+
           </div><!-- .col-3 -->
 
           <div class="col-3" id='col3'>
             <div class="block" id='template2'>
-    
+
           <h2>Template variables </h2>
 
-            <hr />  
+            <hr />
             <h3>blog.liquid </h3>
             <dl>
               <dt>blogs['the-handle'].variable</dt>
@@ -1284,42 +1314,42 @@ We have a tracking number!
               <dd>
                 <em>Returns the id of this blog. </em>
               </dd>
-              
+
               <dt>blog.handle </dt>
               <dd>
                 <em>This is the accessor for this blog. It is usually the blog's title in underscore with every blank space replaced by a hyphen.</em>
               </dd>
-              
+
               <dt>blog.title </dt>
               <dd>
                 <em>Returns the title of this blog (set in Shopify) </em>
               </dd>
-              
+
               <dt>blog.articles</dt>
               <dd>
                 <em>Returns all of the blog's articles. </em>
               </dd>
-              
+
               <dt>blog.articles_count </dt>
               <dd>
                 <em>Returns the count of all of the blog's articles. </em>
               </dd>
-              
+
               <dt>blog.url</dt>
               <dd>
                 <em>Returns the relative URL of the blog.</em>
               </dd>
-              
+
               <dt>blog.comments_enabled? </dt>
               <dd>
                 <em>Returns true if comments are enabled for this blog, false otherwise. </em>
               </dd>
-              
+
               <dt>blog.moderated? </dt>
               <dd>
                 <em>Returns true if this blog is moderated, false otherwise. </em>
               </dd>
-              
+
                   <dt>blog.next_article </dt>
               <dd>
                 <em>URL of the next (older) post. It returns false if there is no next article.</em>
@@ -1330,7 +1360,7 @@ We have a tracking number!
   {% endif %}
 </code></div>
               </dd>
-              
+
              <dt>blog.previous_article </dt>
               <dd>
                 <em>URL of the previous (newer) post. It returns false if there is no next article.</em>
@@ -1341,7 +1371,7 @@ We have a tracking number!
   {% endif %}<br/>
 </code></div>
               </dd>
-              
+
              <dt>blog.all_tags </dt>
               <dd>
                 <em>Returns all the tags of the blog</em>
@@ -1375,16 +1405,16 @@ The snippet below works for both article.liquid and blog.liquid<br />
 
 </code></div>
               </dd>
-              
+
                <dt>blog.tags </dt>
               <dd>
                 <em>Returns all tags of all blogs on in this particular collection which match the current view.<br/> This means that if the current view is filtered to only articles with a certain tags this variable will hold all the tags these remaining articles actually have. </em>
-                
+
               </dd>
-              
-              
+
+
             </dl>
-            
+
             <hr />
 
             <h3>article.liquid </h3>
@@ -1394,62 +1424,62 @@ The snippet below works for both article.liquid and blog.liquid<br />
               <dd>
                 <em>Returns the id of this article. </em>
               </dd>
-              
+
               <dt> article.title </dt>
               <dd>
                 <em>Returns the title of this article. </em>
               </dd>
-              
+
               <dt>article.author </dt>
               <dd>
                 <em>Returns the name of the author of this article. </em>
               </dd>
-              
+
               <dt>article.content </dt>
               <dd>
                 <em>Returns this article's content (the actual article). </em>
               </dd>
-              
+
               <dt>article.created_at </dt>
               <dd>
                 <em>Returns the date/time of when this article was created. </em>
               </dd>
-              
+
               <dt>article.published_at</dt>
               <dd>
                 <em>Returns the date/time of when this article was last published. Different from article.created_at if you import blog posts or hide/show a blog post. </em>
               </dd>
-              
+
               <dt>article.url </dt>
               <dd>
                 <em>Relative url where the blog can be found. Will append #article-id as anchor so that the page should automatically scroll to the corresponding article.</em>
               </dd>
-              
+
               <dt>article.comments </dt>
               <dd>
                 <em>Returns all published comments for this article if comments are enabled for the blog that this article belongs to. Otherwise, returns an empty array. </em>
               </dd>
-              
+
               <dt>article.comments_count </dt>
               <dd>
                 <em>Returns the number of published comments for this article. </em>
               </dd>
-              
+
               <dt>article.comment_post_url </dt>
               <dd>
                 <em>Relative url where comments are listed for this article. </em>
               </dd>
-              
+
               <dt>article.comments_enabled? </dt>
               <dd>
                 <em>Returns true if comments are enabled for the blog that this article belongs to, otherwise returns false. </em>
               </dd>
-              
+
               <dt>article.moderated? </dt>
               <dd>
                 <em>Returns true if the blog that this article belongs to is moderated, otherwise returns false. </em>
               </dd>
-              
+
               <dt>article.excerpt </dt>
               <dd>
                 <em>Renders the article's excerpt</em>
@@ -1468,46 +1498,46 @@ Here is the article excerpt<br />
 {% endfor %}<br />
     </code>
               </dd>
-              
+
              <dt>article.tags </dt>
               <dd>
                 <em>Returns all the tags for an article</em>
                               </dd>
 
             </dl>
-            
+
             <dl>
               <dt>comment.id </dt>
               <dd>
                 <em>Returns the id of this comment. </em>
               </dd>
-              
+
               <dt>comment.author </dt>
               <dd>
                 <em>Returns the author of this comment. </em>
               </dd>
-              
+
               <dt>comment.email </dt>
               <dd>
                 <em>Returns the e-mail address of the author. </em>
               </dd>
-              
+
               <dt>comment.content </dt>
               <dd>
                 <em>Returns the body of the comment (in html). </em>
               </dd>
-              
+
               <dt>comment.status </dt>
               <dd>
                 <em>Returns the status of the comment. Will be one of 'unapproved', 'published', 'removed', or 'spam'. </em>
               </dd>
-              
+
               <dt>comment.url </dt>
               <dd>
                 <em>Relative url where the article can be found. Will append the comment's id as anchor so that the page should automatically scroll to the corresponding comment. </em>
-              </dd>  
+              </dd>
             </dl>
-           
+
 
             <hr />
             <h3>collection.liquid </h3>
@@ -1523,22 +1553,22 @@ Here is the article excerpt<br />
               <dd>
                 <em>Returns the id of this collection </em>
               </dd>
-              
+
               <dt>collection.title</dt>
               <dd>
                 <em>Returns the title of this collection </em>
               </dd>
-              
+
               <dt>collection.handle</dt>
               <dd>
                 <em>Returns this collection's handle, which is by default its title in lowercase. Whitespaces in the original title are replaced by dashes in the handle. The handle of a collection with the title "Winter Sale" would be "winter-sale". </em>
               </dd>
-              
+
               <dt>collection.description</dt>
               <dd>
                 <em>Returns the description of this collection </em>
               </dd>
-              
+
               <dt>collection.all_types</dt>
               <dd>
                 <em>Returns a list of all unique product types in the collection</em>
@@ -1551,7 +1581,7 @@ Here is the article excerpt<br />
 {% endfor %}<br/>
 &lt;/ul&gt;</code>
               </dd>
-              
+
               <dt>collection.all_vendors</dt>
               <dd>
                 <em>Returns a list of all unique vendors in the collection</em>
@@ -1566,53 +1596,53 @@ Here is the article excerpt<br />
 &lt;/ul&gt;
 </code>
               </dd>
-              
+
               <dt>collection.products</dt>
               <dd>
                 <em>Returns a collection of all products that are associated with this collection which match the current view. This takes into account things like paginate and selected tags.</em>
               </dd>
-              
+
               <dt>collection.products_count </dt>
               <dd>
                 <em>Returns a count of all of the products in this collection which match the current view. This takes into account things like paginate and selected tags. </em>
               </dd>
-              
+
               <dt>collection.all_products</dt>
               <dd>
                 <em>Returns all products that are associated with this collection. Default limit is 50, use pagination for more products</em>
               </dd>
-              
+
               <dt>collection.all_products_count </dt>
               <dd>
                 <em>Returns a count of all of the products in this collection. </em>
               </dd>
-              
+
               <dt>collection.tags</dt>
               <dd>
                 <em>Returns all tags of all products on in this particular collection which match the current view. This means that if the current view is filtered to only products with a certain tags this variable will hold all the tags these remaining products actually have. </em>
               </dd>
-              
+
               <dt>collection.all_tags</dt>
               <dd>
                 <em>This shows all tags associated with the collection. </em>
               </dd>
-              
+
               <dt>collection.next_product</dt>
               <dd>
                 <em>These methods are available if you scope your product pages to a certain collection.</em>
               </dd>
-              
+
               <dt>collection.previous_product </dt>
               <dd>
                 <em>These methods are available if you scope your product pages to a certain collection.</em>
               </dd>
-              
+
               <dt>collection.url</dt>
               <dd>
                 <em>Returns the url for the specific collection. </em>
               </dd>
-              
-              
+
+
             </dl>
 
             <hr />
@@ -1629,34 +1659,34 @@ Here is the article excerpt<br />
               <dd>
                 <em>Returns the id of this page. </em>
               </dd>
-              
+
               <dt>page.handle </dt>
               <dd>
                 <em>This is the accessor for this page. It is usually the page's title in underscore with every blank space replaced by a dash.</em>
               </dd>
-              
+
               <dt>page.title </dt>
               <dd>
                 <em>Returns the title of this page </em>
               </dd>
-              
+
               <dt>page.content </dt>
               <dd>
                 <em>Returns the content of this page. </em>
               </dd>
-              
+
               <dt>page.url </dt>
               <dd>
                 <em>Relative url where the page can be found. </em>
               </dd>
-              
+
               <dt>page.author </dt>
               <dd>
                 <em>Returns the author of this page. </em>
               </dd>
-              
+
             </dl>
-            
+
             <hr />
             <h3>Images</h3>
             <dl>
@@ -1664,28 +1694,28 @@ Here is the article excerpt<br />
               <dd>
                 <em>The image unique ID. </em>
               </dd>
-              
+
               <dt>image.product_id</dt>
               <dd>
                 <em>The id of the product the image belongs to. Returns the same value as product.id</em>
               </dd>
-              
+
               <dt>image.position </dt>
               <dd>
                 <em>The position of the image among other images of the product. The first image (featured) returns the value "1"</em>
               </dd>
-              
+
               <dt>image.src </dt>
               <dd>
                 <em>The relative path to the product image. It must be used in conjunction with the product_img_url filter. Returns the same value as {{ image }} </em>
                 <code>{{ image.src | product_img_url: 'original' }}</code>
               </dd>
-              
+
               <dt>image.alt</dt>
               <dd>
                 <em>The description of the image. If image.alt is blank it will render product.title </em>
               </dd>
-              
+
               <hr />
             <h3>Customers</h3>
             <dl>
@@ -1693,7 +1723,7 @@ Here is the article excerpt<br />
               <dd>
                 <em>Returns true or false if customers accepts marketing</em>
               </dd>
-              
+
               <dt>customer.addresses</dt>
               <dd>
                 <em>Use in a loop statement in conjunction with "address.[variable]"</em>
@@ -1702,48 +1732,48 @@ Here is the article excerpt<br />
 
                     </div><!-- .example -->
               </dd>
-              
+
               <dt>customer.addresses_count</dt>
               <dd><em>Total number of addresses for this customer</em></dd>
-              
-              
+
+
               <dt>customer.default_address</dt>
               <dd>
                 <em>Use in a loop statement in conjunction with "address.[variable]"</em>
                 <div class="example">
                       <code>{% for address in customer.default_address %}<br>{{ customer_address.first_name }}<br> or {{ customer_address.phone }}<br> {% endfor %}</code>
-  
+
                     </div><!-- .example -->
               </dd>
-              
+
               <dt>customer.email</dt>
               <dd>
                 <em>Returns customer email</em>
               </dd>
-              
+
               <dt>customer.first_name</dt>
               <dd>
               <em>Returns the first name of the customer</em>
               </dd>
-              
+
               <dt>customer.has_account</dt>
               <dd>
               <em>Returns true or false if the customer has an account</em>
               </dd>
-              
+
               <dt>customer.id</dt>
               <dd>
               <em>Returns the customer id</em>
               </dd>
-              
+
               <dt>customer.last_name</dt>
               <dd>
               <em>Returns the last name of the customer</em>
               </dd>
-              
-              
-              
-              
+
+
+
+
 
 
 
@@ -1752,8 +1782,8 @@ Here is the article excerpt<br />
                <li><a class="move" href="http://everpixel.com"><img src="icn-move.png" width="11" height="11" alt="Icn Move" /></a></li>
              </ul>
                   </div><!-- .block -->
-                  
-               
+
+
           </div><!-- .col-3 -->
 
           <div class="col-3 last" id='col4'>
@@ -1773,73 +1803,73 @@ Here is the article excerpt<br />
               <dd>
                 <em>Returns the id of this product </em>
               </dd>
-              
+
               <dt>product.title</dt>
               <dd>
                 <em>Returns the title of this product
                 </em>
               </dd>
-              
+
               <dt>product.handle</dt>
               <dd>
                 <em>Returns the handle of this product </em>
               </dd>
-              
+
               <dt>product.type</dt>
               <dd>
                 <em>Returns the type of this product, e.g. "snowboard", "headphones" </em>
               </dd>
-              
+
               <dt>product.vendor</dt>
               <dd>
                 <em>Returns the vendor of this product, e.g. "Sony", "Apple" </em>
               </dd>
-              
+
               <dt>product.price</dt>
               <dd>
                 <em>Returns the price for this product. By default this is the minimum price. </em>
               </dd>
-              
+
               <dt>product.price_min</dt>
               <dd>
                 <em>Returns the minimum price for this product. </em>
               </dd>
-              
+
               <dt>product.compare_at_price_min</dt>
               <dd>
                 <em>Returns a "compare at" price, e.g. recommended retail price for the least expensive variant of this product. </em>
               </dd>
-              
+
               <dt>product.price_max</dt>
               <dd>
                 <em>Returns the maximum price for this product. </em>
               </dd>
-              
+
               <dt>product.compare_at_price_max</dt>
               <dd>
                 <em>Returns a "compare at" price, e.g. recommended retail price for the most expensive variant of this product. </em>
               </dd>
-              
+
               <dt>product.price_varies</dt>
               <dd>
                 <em>Returns true if the product's variants have varying prices. Returns false if all variants have the same price. </em>
               </dd>
-              
+
               <dt>product.compare_at_price_varies</dt>
               <dd>
                 <em>Returns true if the compare_at_price_min is different from compare_at_price_max</em>
               </dd>
-              
+
               <dt>product.url</dt>
               <dd>
                 <em>Returns the url of this product. You need this for hyperlinking to this product's detail page from anywhere else in the store </em>
               </dd>
-              
+
               <dt>product.featured_image</dt>
               <dd>
                 <em>Returns the filename with a relative path of the featured image. </em>
               </dd>
-              
+
               <dt>product.images</dt>
               <dd>
                 <em>Returns a collection of all image filenames for this product. </em>
@@ -1847,103 +1877,103 @@ Here is the article excerpt<br />
                 {{ image.src | product_img_url: 'grande' }}
                 {% endfor %}</code>
               </dd>
-              
+
               <dt>product.description </dt>
               <dd>
                 <em>Returns the description of this product. </em>
               </dd>
-              
+
               <dt>product.content </dt>
               <dd>
                 <em>Alias of product.description. </em>
               </dd>
-              
+
               <dt>product.variants</dt>
               <dd>
                 <em>Returns a collection of all of this product's variants. </em>
               </dd>
-              
+
               <dt>product.available</dt>
               <dd>
                 <em>Returns false if all variants' quantities are zero and their policies are set to "stop selling when sold out". </em>
               </dd>
-              
+
               <dt>product.template_suffix </dt>
               <dd>
                 <em>If using a custom product template (like product.bike-landing.liquid) then it will return the name of the template (bike-landing)</em>
               </dd>
-              
-              
+
+
               <dt>product.selected_variant </dt>
               <dd>
                 <em>Returns the variant object if passed in through the url (ex: ?variant=123 would return "123"). </em>
               </dd>
-              
+
               <dt>product.selected_or_first_<br>available_variant </dt>
               <dd>
                 <em>Returns the variant objet if there is a ?variant= url parameter. If there is no param the first variant with inventory will be selected.</em>
               </dd>
-              
+
               <dt>product.collections</dt>
               <dd>
                 <em>Returns a list of collections a product is listed in. </em>
               </dd>
-              
+
               <dt>product.tags</dt>
               <dd>
                 <em>Returns a list of the product's tags (represented by simple strings). </em>
               </dd>
-              
+
               <dt>product.options</dt>
               <dd>
                 <em>Returns a list of the product's options. By default, there is always at least one option, but there can be up to three. You can do a check to see how many Options a product may have by using the size filter.</em>
               </dd>
 
             </dl>
-            
+
             <dl>
-              
+
               <dt>variant.id </dt>
               <dd><em>Returns the variant’s unique id</em></dd>
-              
+
               <dt>variant.title </dt>
               <dd><em>Returns the concatenation of all the variant's option values, joined by " / ".</em></dd>
-              
+
               <dt>variant.price </dt>
               <dd><em>Returns the variants price</em></dd>
 
               <dt>variant.image</dt>
               <dd><em>You can also use {{ variant.image.src }}, but you probably want to use {{ product.selected_or_first_available_variant.featured_image }} tag instead of variant.image</em></dd>
-              
+
               <dt>variant.compare_at_price</dt>
               <dd><em>Returns the variant’s recommended retail price</em></dd>
-              
+
               <dt>variant.available </dt>
               <dd><em>Returns whether the variant is available for sale or not. </em></dd>
-              
+
               <dt>variant.inventory_management </dt>
               <dd><em>Returns the variant’s inventory tracking service</em></dd>
-              
+
               <dt>variant.inventory_quantity </dt>
               <dd><em>Returns how many of this variants are in stock for this shop</em></dd>
-              
+
               <dt>variant.weight</dt>
               <dd><em>Returns the weight of the variant</em></dd>
-              
+
               <dt>variant.sku </dt>
               <dd><em>Returns the variant's SKU</em></dd>
-              
+
               <dt>variant.option1 </dt>
               <dd><em>Returns the value of option1 for given variant </em></dd>
-              
+
               <dt>variant.option2 </dt>
               <dd><em>If a product has a second option defined, then returns the value of this variant's option</em></dd>
-              
+
               <dt>variant.option3 </dt>
               <dd><em>If a product has a third option defined</em></dd>
             </dl>
 
-            
+
             <hr />
            <h3>Cart</h3>
             <dl>
@@ -1951,27 +1981,27 @@ Here is the article excerpt<br />
               <dd>
                 <em>Returns the number of items currently in the shopping cart. </em>
               </dd>
-              
+
               <dt>cart.items</dt>
               <dd>
                 <em>Returns all items in the shopping cart. Each one is of the type Line_Item. You will want to iterate through the return value (see example) </em>
               </dd>
-              
+
               <dt>cart.total_price</dt>
               <dd>
                 <em>Returns the total of all the prices added up in your shopping cart. </em>
               </dd>
-              
+
               <dt>cart.total_weight</dt>
               <dd>
                 <em>Returns the total weight of all items in the cart combined. Weight is always returned as grams. Use weight or weight_with_unit from the filter library to display the actual weight in your preferred unit system.</em>
               </dd>
-              
+
               <dt>cart.note</dt>
               <dd>
                 <em>allows you the option of adding a note field to your checkout template. Usage of this feature is very flexible. The general idea is that you simply define an input field named “note” in the form that submits to ”/cart” in cart.liquid.  </em>
               </dd>
-              
+
               <dt>cart.attributes</dt>
               <dd>
                 <em>The attributes property is similar to the note property above in that it is an optional field you can add to your shop’s checkout form. Simply define an input field named “attributes[]” and it will be captured automatically and displayed on the order detail page in your admin area.</em>
@@ -1980,9 +2010,9 @@ Here is the article excerpt<br />
             </dl>
 
             <hr />
-            
 
-            
+
+
             <h3>Linklist</h3>
             <dl>
 
@@ -1991,29 +2021,29 @@ Here is the article excerpt<br />
                 <em>Access any blog globally in your store</em>
                 <code>{{ linklists['footer'].handle }}</code>
               </dd>
-              
+
               <dt>linklist.title</dt>
               <dd>
                 <em>Returns the title of this linklist</em>
               </dd>
-              
+
               <dt>linklist.handle</dt>
               <dd>
                 <em>Returns the handle of this linklist </em>
                 <code>{{ linklists.footer.handle }}</code>
               </dd>
-              
+
               <dt>linklist.links</dt>
               <dd>
                 <em>Returns a collection of this linklist's links.</em>
               </dd>
-              
+
               <dt>linklist.object</dt>
               <dd>
                 <em>The object the link points to. If the link points to a product {{link.product.title}} will, for example, print the name of the product. This is a very powerful feature and can be used for many complex liquid tasks.</em>
               </dd>
             </dl>
-            
+
                        <dl>
            <dt>link.title </dt>
            <dd><em>Returns the description of this link</em> </dd>
@@ -2035,24 +2065,24 @@ Here is the article excerpt<br />
            <dd><em>Returns the url of this link </em> </dd>
                       <dt>link.type </dt>
            <dd><em>Returns the type of the object in link.object, you can usecollection_link, http_link, product_link, relative_link, page_link, blog_link </em>
-           
+
            <div class="example">
            <code>
 {% if link.type == &apos;collection_link&apos; %}
 {% endif %}
 </code>
 </div>
-           
+
            </dd>
                       <dt>link.object </dt>
            <dd><em>If you're pointing to a collection, then link.object is a collection object. If you're pointing to a product page, then link.object is a product object.</em>
            <div class="example">
            <code>{% if link.type == &apos;collection_link&apos; %}<br>
 {% if link.object.all_tags.size &gt; 0 %}
-           
+
            </code>
            </div>
-           
+
            </dd>
            </dl>
 
@@ -2069,7 +2099,7 @@ Here is the article excerpt<br />
               <dd>
                 <em>Returns the street address</em>
               </dd>
-              
+
               <dt>shop.address.city</dt>
               <dd>
                 <em>Returns the name of the city</em>
@@ -2178,16 +2208,16 @@ Here is the article excerpt<br />
               </dd>
 
 
-              
 
-              
+
+
               <dt>shop.products_count</dt>
               <dd>
                 <em>Returns the number of products you have online. </em>
               </dd>
-              
 
-              
+
+
               <dt>shop.vendors </dt>
               <dd>
                 <em>Returns a list of unique product vendors </em>
@@ -2199,7 +2229,7 @@ Here is the article excerpt<br />
  &lt;/ul&gt;<br/>
     </code>
               </dd>
-              
+
               <dt>shop.types </dt>
               <dd>
                 <em>Returns a list of all unique product types in the shop </em>
@@ -2214,7 +2244,7 @@ Here is the article excerpt<br />
 
     </code>
               </dd>
-              
+
 
             </dl>
              <ul class="section-options">
@@ -2222,25 +2252,25 @@ Here is the article excerpt<br />
                   <li><a class="move" href="http://everpixel.com"><img src="icn-move.png" width="11" height="11" alt="Icn Move" /></a></li>
                </ul>
             <hr />
-            
+
             </div><!-- .block -->
-            
-            
+
+
           </div><!-- .col-3 -->
 
         </div><!-- .content -->
 
       </div><!-- #container -->
-      
+
       </div><!-- #wrapper -->
-      
+
       <div id="footer-wrapper">
         <div id="footer">
         <p>Don't worry we'll save your cheat sheet configuration for next time</p>
         <p><small>&hellip;and if anything goes wrong you can blame <a href="http://www.tajimaphotography.com/" title="Tajima Photography">John Tajima</a> because he helped me with the js cookie array. Thanks John.</small></p>
         </div><!-- #footer -->
       </div><!-- #footer-wrapper -->
-      
+
       <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -2250,8 +2280,8 @@ Here is the article excerpt<br />
       var pageTracker = _gat._getTracker("UA-10154305-2");
       pageTracker._trackPageview();
       } catch(err) {}</script>
-      
-      
+
+
 
     </body>
     </html>
