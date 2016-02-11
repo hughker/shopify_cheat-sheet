@@ -1456,6 +1456,48 @@ The snippet below works for both article.liquid and blog.liquid<br />
                 <em>Returns the name of the author of this article. </em>
               </dd>
 
+              <dt>article.image <span class="new">New</span></dt>
+              <dd>
+                <em>Returns the article image. Use the img_url filter to link it to the image file on the Shopify CDN. Check for the presence of the image first. </em>
+                <div class="example">
+                  <code>
+                    {% if article.image %}{{ article.image | img_url: 'medium' | img_tag }}{% endif %}
+                  </code>
+                </div>
+              </dd>
+
+              <dt>article.image.src <span class="new">New</span></dt>
+              <dd>
+                <em>Returns the relative URL to the article image. </em>
+                <div class="example">
+                  <code>
+                    {{ article.image.src | img_url: 'medium' }}
+                  </code>
+                </div>
+              </dd>
+
+              <dt>article.excerpt_or_content <span class="new">New</span></dt>
+              <dd>
+                <em>Returns article.excerpt of an article if it exists. Returns article.content if an excerpt does not exist for the article. </em>
+              </dd>
+
+              <dt>article.excerpt </dt>
+              <dd>
+                <em>Renders the article's excerpt</em>
+                <code>
+                  {% for article in blog.articles %}
+                    <br />
+                    {% if article.excerpt == blank %}<br />
+                      The article has no excerpt so let&apos;s truncate the text instead:<br />
+                      {{ article.content | strip_html | truncate: 30 }}<br />
+                    {% else %}<br />
+                      Here is the article excerpt<br />
+                      {{ article.excerpt }}<br />
+                    {% endif %}<br />
+                  {% endfor %}<br />
+                </code>
+              </dd>
+
               <dt>article.content </dt>
               <dd>
                 <em>Returns this article's content (the actual article). </em>
@@ -1501,29 +1543,40 @@ The snippet below works for both article.liquid and blog.liquid<br />
                 <em>Returns true if the blog that this article belongs to is moderated, otherwise returns false. </em>
               </dd>
 
-              <dt>article.excerpt </dt>
-              <dd>
-                <em>Renders the article's excerpt</em>
-                <code>
-{% for article in blog.articles %}
-<br />
-{% if article.excerpt == blank %}<br />
-The article has no excerpt so let&apos;s truncate the text instead:<br />
-{{ article.content | strip_html | truncate: 30 }}<br />
-
-{% else %}<br />
-Here is the article excerpt<br />
-{{ article.excerpt }}<br />
-
-{% endif %}<br />
-{% endfor %}<br />
-    </code>
-              </dd>
-
              <dt>article.tags </dt>
               <dd>
                 <em>Returns all the tags for an article</em>
-                              </dd>
+              </dd>
+
+              <dt>article.user.account_owner <span class="new">New</span></dt>
+               <dd>
+                 <em>Returns "true" if the author of the article is the account owner of the shop. Returns "false" if the author is not the account owner.</em>
+               </dd>
+
+              <dt>article.user.bio <span class="new">New</span></dt>
+               <dd>
+                 <em>Returns the bio of the author of an article. This is entered through the Staff members options on the Account page.</em>
+               </dd>
+
+              <dt>article.user.email <span class="new">New</span></dt>
+               <dd>
+                 <em>Returns the email of the author of an article. This is entered through the Staff members options on the Account page.</em>
+               </dd>
+
+              <dt>article.user.first_name <span class="new">New</span></dt>
+               <dd>
+                 <em>Returns the first name of the author of an article. This is entered through the Staff members options on the Account page.</em>
+               </dd>
+
+              <dt>article.user.last_name <span class="new">New</span></dt>
+               <dd>
+                 <em>Returns the last name of the author of an article. This is entered through the Staff members options on the Account page.</em>
+               </dd>
+
+              <dt>article.user.homepage <span class="new">New</span></dt>
+               <dd>
+                 <em>Returns the homepage of the author of an article. This is entered through the Staff members options on the Account page.</em>
+               </dd>
 
             </dl>
 
@@ -1814,7 +1867,7 @@ Here is the article excerpt<br />
             <h3>Product.liquid </h3>
             <dl>
 
-              <dt>all_products['the-handle'].variable <span class="new">New</span></dt>
+              <dt>all_products['the-handle'].variable </dt>
               <dd>
                 <em>Access any product globally in your store. You can do this with most other objects like blogs and collections.</em>
                 <code>{{ all_products['the-handle'].title }}</code>
